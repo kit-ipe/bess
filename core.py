@@ -99,12 +99,12 @@ def fetchDataADEI():
         #print data
 
         last_value = data.split(",")[-1].strip()
-	try:
+        try:
             print last_value
             test_x = float(last_value)
         except ValueError:
             last_value = ""
- 	print last_value
+ 	    print last_value
         cache_data[param] = last_value
         #current_timestamp = strftime("%Y-%m-%d %H:%M:%S", gmtime())
         current_timestamp = strftime("%Y-%m-%d %H:%M:%S")
@@ -250,19 +250,19 @@ class StatusHandler(tornado.web.RequestHandler):
         #    return
 
         data = {
-            "style": style_data,
+            #"style": style_data,
             "varname": varname_data
         }
        
-        if "background" in config:
-            data["background"] = config["background"]    
+        #if "background" in config:
+        #    data["background"] = config["background"]    
         
         if "title" in config:
             data["title"] = config["title"]
         else:
             data["title"] = "BORA"
  
-        self.render('status.html', data=data)
+        self.render('index.html', data=data)
 
 
 class AdeiKatrinHandler(tornado.web.RequestHandler):
