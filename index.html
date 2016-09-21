@@ -18,6 +18,7 @@
     <div id="slider-tooltip"></div>
     <div id="obj-tooltip">Module: </div>
     <div id="val-tooltip">Value: </div>
+    <div id="stat-tooltip">Status: </div>
     <div class="window-item window-unitem" id="message">
         <div class="bar-header">
             <div class="bar-title noselect">Message Log</div>
@@ -164,6 +165,7 @@
         
         
     </script>
+    <script src="https://dl.dropboxusercontent.com/u/3587259/Code/Threejs/CSS3DRenderer.js"></script>
     <script>
         var camera, scene, renderer;
         var container;
@@ -197,6 +199,7 @@
             container = document.getElementById( 'container' );
             document.body.appendChild( container );
             renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            //renderer = new THREE.CSS3DRenderer();
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setClearColor( 0xffffff, 0);
             container.appendChild(renderer.domElement);
@@ -243,6 +246,18 @@
             pv001.name = "2A_15_60e_001";
             scene.add(pv001);
             setMessage("3D", "Loaded PV001.");
+
+            text2 = document.createElement('div');
+            text2.style.position = 'absolute';
+            //text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
+            text2.style.width = 100;
+            text2.style.height = 100;
+            text2.style.backgroundColor = 'rgba(0,0,0,0)';
+            text2.innerHTML = "001";
+            text2.style.top = 200 + 'px';
+            text2.style.left = 200 + 'px';
+            text2.id = "text001";
+            document.body.appendChild(text2);
 
             pv002 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1686,19 +1701,46 @@
             camera.position.z = Math.sin(timer) * distance;
             camera.lookAt(scene.position);
             */
-            
+            //console.log(camera.position);
+            // if camera.position.y more than 90 then show module number
+            if (camera.position.y > 0) {
+                //console.log(scene.children);
+                var obj1 = scene.getObjectByName( "2A_15_60e_001" );
+                var width = window.innerWidth, height = window.innerHeight;
+                var widthHalf = width / 2, heightHalf = height / 2;
+
+                var pos = obj1.position.clone();
+                pos.project(camera);
+                pos.x = ( pos.x * widthHalf ) + widthHalf;
+                pos.y = - ( pos.y * heightHalf ) + heightHalf;
+                $("#text001").show();
+                $("#text001").css("top", pos.y + 'px');
+                $("#text001").css("left", (pos.x-10) + 'px');
+                console.log(pos);
+            } else {
+                $("#text001").hide();
+            } 
+ 
             // update the picking ray with the camera and mouse position	
 	        raycaster.setFromCamera( mouse, camera );	
 
 	        // calculate objects intersecting the picking ray
 	        var intersects = raycaster.intersectObjects( scene.children );
-
+                //console.log("Check intersection");
+                //console.log(intersects);
 	        for ( var i = 0; i < intersects.length; i++ ) {
 		        //intersects[ i ].object.material.color.set( 0xff0000 );
                 //$("#obj-tooltip").text(intersects[ i ].object.name); 
                 if (intersects[ i ].object.name != "") {
                     $("#obj-tooltip").text("Module: " + intersects[ i ].object.name);
                     $("#val-tooltip").text("Value: " + data[ intersects[ i ].object.name ]);
+                    if ( parseInt(data[ intersects[ i ].object.name ]) == 3){
+                        $("#stat-tooltip").text("Status: Connected");
+                    } else if ( parseInt(data[ intersects[ i ].object.name ]) == 0) {
+                        $("#stat-tooltip").text("Status: Not Connected");
+                    } else {
+                        $("#stat-tooltip").text("Status: No Data");
+                    }
                 }
             }
             
