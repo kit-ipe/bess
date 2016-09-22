@@ -18,7 +18,7 @@
     <div id="slider-tooltip"></div>
     <div id="obj-tooltip">Module: </div>
     <div id="val-tooltip">Value: </div>
-    <div id="stat-tooltip">Status: </div>
+    <!--<div id="stat-tooltip">Status: </div>-->
     <div class="window-item window-unitem" id="message">
         <div class="bar-header">
             <div class="bar-title noselect">Message Log</div>
@@ -188,6 +188,23 @@
         animate();
         window.addEventListener( 'mousemove', onMouseMove, false );
 
+
+        function createLabel(name) {
+            var text2 = document.createElement('div');
+            text2.style.position = 'absolute';
+            //text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
+            text2.style.width = 100;
+            text2.style.height = 100;
+            text2.style.padding = "5px";
+            text2.style.backgroundColor = '#303030';
+            text2.style.color = '#fff';
+            text2.innerHTML = name;
+            //text2.style.top = 200 + 'px';
+            //text2.style.left = 200 + 'px';
+            text2.id = "text"+name;
+            document.body.appendChild(text2);
+        }
+
         function init() {
             setMessage("3D", "Initialization.");
             scene = new THREE.Scene();
@@ -246,18 +263,8 @@
             pv001.name = "2A_15_60e_001";
             scene.add(pv001);
             setMessage("3D", "Loaded PV001.");
+            createLabel("001");
 
-            text2 = document.createElement('div');
-            text2.style.position = 'absolute';
-            //text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
-            text2.style.width = 100;
-            text2.style.height = 100;
-            text2.style.backgroundColor = 'rgba(0,0,0,0)';
-            text2.innerHTML = "001";
-            text2.style.top = 200 + 'px';
-            text2.style.left = 200 + 'px';
-            text2.id = "text001";
-            document.body.appendChild(text2);
 
             pv002 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -272,6 +279,7 @@
             pv002.name = "5A_15_60e_002";
             scene.add(pv002);
             setMessage("3D", "Loaded PV002.");
+            createLabel("002");
 
             pv003 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -286,6 +294,7 @@
             pv003.name = "6A_30_60e_003";
             scene.add(pv003);
             setMessage("3D", "Loaded PV003.");
+            createLabel("003");
 
             pv004 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -300,6 +309,7 @@
             pv004.name = "1A_30_60e_004";
             scene.add(pv004);
             setMessage("3D", "Loaded PV004.");
+            createLabel("004");
 
             pv005 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -314,6 +324,7 @@
             pv005.name = "6A_45_60e_005";
             scene.add(pv005);
             setMessage("3D", "Loaded PV005.");
+            createLabel("005");
 
             pv006 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -328,6 +339,7 @@
             pv006.name = "1A_45_60e_006";
             scene.add(pv006);
             setMessage("3D", "Loaded PV006.");
+            createLabel("006");
 
             pv007 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -342,6 +354,7 @@
             pv007.name = "6C_60_60e_007";
             scene.add(pv007);
             setMessage("3D", "Loaded PV007.");
+            createLabel("007");
 
             pv008 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -356,6 +369,7 @@
             pv008.name = "1C_60_60e_008";
             scene.add(pv008);
             setMessage("3D", "Loaded PV008.");
+            createLabel("008");
 
             pv009 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -370,6 +384,7 @@
             pv009.name = "2A_15_45e_009";
             scene.add(pv009);
             setMessage("3D", "Loaded PV009.");
+            createLabel("009");
 
             pv010 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -384,6 +399,7 @@
             pv010.name = "1A_15_45e_010";
             scene.add(pv010);
             setMessage("3D", "Loaded PV010.");
+            createLabel("010");
 
             pv011 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -398,6 +414,7 @@
             pv011.name = "4A_15_45e_011";
             scene.add(pv011);
             setMessage("3D", "Loaded PV011.");
+            createLabel("011");
 
             pv012 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -412,6 +429,7 @@
             pv012.name = "6A_30_45e_012";
             scene.add(pv012);
             setMessage("3D", "Loaded PV012.");
+            createLabel("012");
 
             pv013 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -426,6 +444,7 @@
             pv013.name = "2A_30_45e_013";
             scene.add(pv013);
             setMessage("3D", "Loaded PV013.");
+            createLabel("013");
 
             pv014 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -440,6 +459,7 @@
             pv014.name = "2A_45_45e_014";
             scene.add(pv014);
             setMessage("3D", "Loaded PV014.");
+            createLabel("014");
 
             pv015 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -454,6 +474,7 @@
             pv015.name = "4A_45_45e_015";
             scene.add(pv015);
             setMessage("3D", "Loaded PV015.");
+            createLabel("015");
 
             pv016 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -468,6 +489,7 @@
             pv016.name = "6A_60_45e_016";
             scene.add(pv016);
             setMessage("3D", "Loaded PV016.");
+            createLabel("016");
 
             pv017 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -482,6 +504,7 @@
             pv017.name = "2A_60_45e_017";
             scene.add(pv017);
             setMessage("3D", "Loaded PV017.");
+            createLabel("017");
 
             pv018 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -496,6 +519,7 @@
             pv018.name = "3A_15_30e_018";
             scene.add(pv018);
             setMessage("3D", "Loaded PV018.");
+            createLabel("018");
 
             pv019 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -510,6 +534,7 @@
             pv019.name = "1A_15_30e_019";
             scene.add(pv019);
             setMessage("3D", "Loaded PV019.");
+            createLabel("019");
 
             pv020 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -524,6 +549,7 @@
             pv020.name = "1B_15_30e_020";
             scene.add(pv020);
             setMessage("3D", "Loaded PV020.");
+            createLabel("020");
 
             pv021 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -538,6 +564,7 @@
             pv021.name = "1D_15_30e_021";
             scene.add(pv021);
             setMessage("3D", "Loaded PV021.");
+            createLabel("021");
 
             pv022 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -552,6 +579,7 @@
             pv022.name = "1C_15_30e_022";
             scene.add(pv022);
             setMessage("3D", "Loaded PV022.");
+            createLabel("022");
 
             pv023 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -566,6 +594,7 @@
             pv023.name = "5A_15_30e_023";
             scene.add(pv023);
             setMessage("3D", "Loaded PV023.");
+            createLabel("023");
 
             pv024 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -580,6 +609,7 @@
             pv024.name = "6D_30_30e_024";
             scene.add(pv024);
             setMessage("3D", "Loaded PV024.");
+            createLabel("024");
 
             pv025 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -594,6 +624,7 @@
             pv025.name = "3D_30_30e_025";
             scene.add(pv025);
             setMessage("3D", "Loaded PV025.");
+            createLabel("025");
 
             pv026 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -608,6 +639,7 @@
             pv026.name = "6A_45_30e_026";
             scene.add(pv026);
             setMessage("3D", "Loaded PV026.");
+            createLabel("026");
 
             pv027 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -622,6 +654,7 @@
             pv027.name = "3A_45_30e_027";
             scene.add(pv027);
             setMessage("3D", "Loaded PV027.");
+            createLabel("027");
 
             pv028 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -636,6 +669,7 @@
             pv028.name = "1A_45_30e_028";
             scene.add(pv028);
             setMessage("3D", "Loaded PV028.");
+            createLabel("028");
 
             pv029 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -650,6 +684,7 @@
             pv029.name = "6A_60_30e_029";
             scene.add(pv029);
             setMessage("3D", "Loaded PV029.");
+            createLabel("029");
 
             pv030 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -664,6 +699,7 @@
             pv030.name = "3A_60_30e_030";
             scene.add(pv030);
             setMessage("3D", "Loaded PV030.");
+            createLabel("030");
 
             pv031 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -678,6 +714,7 @@
             pv031.name = "1A_60_30e_031";
             scene.add(pv031);
             setMessage("3D", "Loaded PV031.");
+            createLabel("031");
 
             pv032 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -692,6 +729,7 @@
             pv032.name = "3A_15_15e_032";
             scene.add(pv032);
             setMessage("3D", "Loaded PV032.");
+            createLabel("032");
 
             pv033 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -706,6 +744,7 @@
             pv033.name = "1B_15_15e_033";
             scene.add(pv033);
             setMessage("3D", "Loaded PV033.");
+            createLabel("033");
             
             pv034 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -720,6 +759,7 @@
             pv034.name = "4B_15_15e_034";
             scene.add(pv034);
             setMessage("3D", "Loaded PV034.");
+            createLabel("034");
 
             pv035 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -734,6 +774,7 @@
             pv035.name = "3A_30_15e_035";
             scene.add(pv035);
             setMessage("3D", "Loaded PV035.");
+            createLabel("035");
 
             pv036 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -748,6 +789,7 @@
             pv036.name = "1A_30_15e_036";
             scene.add(pv036);
             setMessage("3D", "Loaded PV036.");
+            createLabel("036");
 
             pv037 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -762,6 +804,7 @@
             pv037.name = "5A_30_15e_037";
             scene.add(pv037);
             setMessage("3D", "Loaded PV037.");
+            createLabel("037");
 
             pv038 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -776,6 +819,7 @@
             pv038.name = "3A_45_15e_038";
             scene.add(pv038);
             setMessage("3D", "Loaded PV038.");
+            createLabel("038");
 
             pv039 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -790,6 +834,7 @@
             pv039.name = "1A_45_15e_039";
             scene.add(pv039);
             setMessage("3D", "Loaded PV039.");
+            createLabel("039");
 
             pv040 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -804,6 +849,7 @@
             pv040.name = "4A_45_15e_040";
             scene.add(pv040);
             setMessage("3D", "Loaded PV040.");
+            createLabel("040");
 
             pv041 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -818,6 +864,7 @@
             pv041.name = "6A_60_15e_041";
             scene.add(pv041);
             setMessage("3D", "Loaded PV041.");
+            createLabel("041");
 
             pv042 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -832,6 +879,7 @@
             pv042.name = "3A_60_15e_042";
             scene.add(pv042);
             setMessage("3D", "Loaded PV042.");
+            createLabel("042");
 
             pv043 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -846,6 +894,7 @@
             pv043.name = "1A_60_15e_043";
             scene.add(pv043);
             setMessage("3D", "Loaded PV043.");
+            createLabel("043");
 
             pv044 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -860,6 +909,7 @@
             pv044.name = "3B_15_00s_044";
             scene.add(pv044);
             setMessage("3D", "Loaded PV044.");
+            createLabel("044");
 
             pv045 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -874,6 +924,7 @@
             pv045.name = "4B_15_00s_045";
             scene.add(pv045);
             setMessage("3D", "Loaded PV045."); 
+            createLabel("045");
 
             pv046 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -888,6 +939,7 @@
             pv046.name = "6A_02_00s_046";
             scene.add(pv046);
             setMessage("3D", "Loaded PV046.");
+            createLabel("046");
 
             pv047 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -902,6 +954,7 @@
             pv047.name = "2A_02_00s_047";
             scene.add(pv047);
             setMessage("3D", "Loaded PV047.");
+            createLabel("047");
 
             pv048 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -916,6 +969,7 @@
             pv048.name = "1A_02_00s_048";
             scene.add(pv048);
             setMessage("3D", "Loaded PV048.");
+            createLabel("048");
 
             pv049 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -930,6 +984,7 @@
             pv049.name = "3C_30_00s_049";
             scene.add(pv049);
             setMessage("3D", "Loaded PV049.");
+            createLabel("049");
 
             pv050 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -944,6 +999,7 @@
             pv050.name = "1A_30_00s_050";
             scene.add(pv050);
             setMessage("3D", "Loaded PV050.");
+            createLabel("050");
 
             pv051 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -958,6 +1014,7 @@
             pv051.name = "1B_30_00s_051";
             scene.add(pv051);
             setMessage("3D", "Loaded PV051.");
+            createLabel("051");
 
             pv052 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -972,6 +1029,7 @@
             pv052.name = "1D_30_00s_052";
             scene.add(pv052);
             setMessage("3D", "Loaded PV052.");
+            createLabel("052");
 
             pv053 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -986,6 +1044,7 @@
             pv053.name = "1C_30_00s_053";
             scene.add(pv053);
             setMessage("3D", "Loaded PV053.");
+            createLabel("053");
 
             pv054 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1000,6 +1059,7 @@
             pv054.name = "4D_30_00s_054";
             scene.add(pv054);
             setMessage("3D", "Loaded PV054.");
+            createLabel("054");
 
             pv055 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1014,6 +1074,7 @@
             pv055.name = "3A_45_00s_055";
             scene.add(pv055);
             setMessage("3D", "Loaded PV055.");
+            createLabel("055");
 
             pv056 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1028,6 +1089,7 @@
             pv056.name = "4A_45_00s_056";
             scene.add(pv056);
             setMessage("3D", "Loaded PV056.");
+            createLabel("056");
 
             pv057 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1042,6 +1104,7 @@
             pv057.name = "6A_60_00s_057";
             scene.add(pv057);
             setMessage("3D", "Loaded PV057.");
+            createLabel("057");
 
             pv058 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1056,6 +1119,7 @@
             pv058.name = "3A_60_00s_058";
             scene.add(pv058);
             setMessage("3D", "Loaded PV058.");
+            createLabel("058");
 
             pv059 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1070,6 +1134,7 @@
             pv059.name = "3B_15_15w_059";
             scene.add(pv059);
             setMessage("3D", "Loaded PV059.");
+            createLabel("059");
 
             pv060 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1084,6 +1149,7 @@
             pv060.name = "1B_15_15w_060";
             scene.add(pv060);
             setMessage("3D", "Loaded PV060.");
+            createLabel("060");
 
             pv061 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1098,6 +1164,7 @@
             pv061.name = "4B_15_15w_061";
             scene.add(pv061);
             setMessage("3D", "Loaded PV061.");
+            createLabel("061");
 
             pv062 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1112,6 +1179,7 @@
             pv062.name = "3A_30_15w_062";
             scene.add(pv062);
             setMessage("3D", "Loaded PV062.");
+            createLabel("062");
 
             pv063 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1126,6 +1194,7 @@
             pv063.name = "1A_30_15w_063";
             scene.add(pv063);
             setMessage("3D", "Loaded PV063.");
+            createLabel("063");
 
             pv064 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1140,6 +1209,7 @@
             pv064.name = "5A_30_15w_064";
             scene.add(pv064);
             setMessage("3D", "Loaded PV064.");
+            createLabel("064");
 
             pv065 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1154,6 +1224,7 @@
             pv065.name = "3A_45_15w_065";
             scene.add(pv065);
             setMessage("3D", "Loaded PV065.");
+            createLabel("065");
 
             pv066 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1168,6 +1239,7 @@
             pv066.name = "1A_45_15w_066";
             scene.add(pv066);
             setMessage("3D", "Loaded PV066.");
+            createLabel("066");
 
             pv067 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1182,6 +1254,7 @@
             pv067.name = "4A_45_15w_067";
             scene.add(pv067);
             setMessage("3D", "Loaded PV067.");
+            createLabel("067");
 
             pv068 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1196,6 +1269,7 @@
             pv068.name = "6A_60_15w_068";
             scene.add(pv068);
             setMessage("3D", "Loaded PV068.");
+            createLabel("068");
 
             pv069 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1210,6 +1284,7 @@
             pv069.name = "3A_60_15w_069";
             scene.add(pv069);
             setMessage("3D", "Loaded PV069.");
+            createLabel("069");
 
             pv070 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1224,6 +1299,7 @@
             pv070.name = "1A_60_15w_070";
             scene.add(pv070);
             setMessage("3D", "Loaded PV070.");
+            createLabel("070");
 
             pv071 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1238,6 +1314,7 @@
             pv071.name = "3A_15_30w_071";
             scene.add(pv071);
             setMessage("3D", "Loaded PV071.");
+            createLabel("071");
 
             pv072 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1252,6 +1329,7 @@
             pv072.name = "1A_15_30w_072";
             scene.add(pv072);
             setMessage("3D", "Loaded PV072.");
+            createLabel("072");
 
             pv073 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1266,6 +1344,7 @@
             pv073.name = "1B_15_30w_073";
             scene.add(pv073);
             setMessage("3D", "Loaded PV073.");
+            createLabel("073");
 
             pv074 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1280,6 +1359,7 @@
             pv074.name = "1D_15_30w_074";
             scene.add(pv074);
             setMessage("3D", "Loaded PV074.");
+            createLabel("074");
 
             pv075 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1293,6 +1373,7 @@
             pv075.rotateY( 11 * Math.PI / 6 );
             pv075.name = "1C_15_30w_075";
             scene.add(pv075);
+            createLabel("075");
 
             pv076 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1307,6 +1388,7 @@
             pv076.name = "5D_15_30w_076";
             scene.add(pv076);
             setMessage("3D", "Loaded PV076.");
+            createLabel("076");
 
             pv077 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1321,6 +1403,7 @@
             pv077.name = "6D_30_30w_077";
             scene.add(pv077);
             setMessage("3D", "Loaded PV077.");
+            createLabel("077");
 
             pv078 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1335,6 +1418,7 @@
             pv078.name = "3D_30_30w_078";
             scene.add(pv078);
             setMessage("3D", "Loaded PV078.");
+            createLabel("078");
 
             pv079 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1349,6 +1433,7 @@
             pv079.name = "1D_30_30w_079";
             scene.add(pv079);
             setMessage("3D", "Loaded PV079.");
+            createLabel("079");
 
             pv080 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1363,6 +1448,7 @@
             pv080.name = "3A_45_30w_080";
             scene.add(pv080);
             setMessage("3D", "Loaded PV080.");
+            createLabel("080");
 
             pv081 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1377,6 +1463,7 @@
             pv081.name = "1A_45_30w_081";
             scene.add(pv081);
             setMessage("3D", "Loaded PV081.");
+            createLabel("081");
 
             pv082 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1391,6 +1478,7 @@
             pv082.name = "5A_45_30w_082";
             scene.add(pv082);
             setMessage("3D", "Loaded PV082.");
+            createLabel("082");
 
             pv083 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1405,6 +1493,7 @@
             pv083.name = "6A_60_30w_083";
             scene.add(pv083);
             setMessage("3D", "Loaded PV083.");
+            createLabel("083");
 
             pv084 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1419,6 +1508,7 @@
             pv084.name = "3A_60_30w_084";
             scene.add(pv084);
             setMessage("3D", "Loaded PV084.");
+            createLabel("084");
 
             pv085 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1433,6 +1523,7 @@
             pv085.name = "1A_60_30w_085";
             scene.add(pv085);
             setMessage("3D", "Loaded PV085.");
+            createLabel("085");
 
             pv086 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1447,6 +1538,7 @@
             pv086.name = "2A_15_45w_086";
             scene.add(pv086);
             setMessage("3D", "Loaded PV086.");
+            createLabel("086");
 
             pv087 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1461,6 +1553,7 @@
             pv087.name = "1A_15_45w_087";
             scene.add(pv087);
             setMessage("3D", "Loaded PV087.");
+            createLabel("087");
 
             pv088 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1475,6 +1568,7 @@
             pv088.name = "4A_15_45w_088";
             scene.add(pv088);
             setMessage("3D", "Loaded PV088.");
+            createLabel("088");
 
             pv089 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1489,6 +1583,7 @@
             pv089.name = "6A_30_45w_089";
             scene.add(pv089);
             setMessage("3D", "Loaded PV089.");
+            createLabel("089");
 
             pv090 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1503,6 +1598,7 @@
             pv090.name = "2A_30_45w_090";
             scene.add(pv090);
             setMessage("3D", "Loaded PV090.");
+            createLabel("090");
 
             pv091 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1517,6 +1613,7 @@
             pv091.name = "2C_45_45w_091";
             scene.add(pv091);
             setMessage("3D", "Loaded PV091.");
+            createLabel("091");
 
             pv092 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1531,6 +1628,7 @@
             pv092.name = "4C_45_45w_092";
             scene.add(pv092);
             setMessage("3D", "Loaded PV092.");
+            createLabel("092");
 
             pv093 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1545,6 +1643,7 @@
             pv093.name = "6A_60_45w_093";
             scene.add(pv093);
             setMessage("3D", "Loaded PV093.");
+            createLabel("093");
 
             pv094 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1559,6 +1658,7 @@
             pv094.name = "2A_60_45w_094";
             scene.add(pv094);
             setMessage("3D", "Loaded PV094.");
+            createLabel("094");
 
             pv095 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1573,6 +1673,7 @@
             pv095.name = "6A_15_60w_095";
             scene.add(pv095);
             setMessage("3D", "Loaded PV095."); 
+            createLabel("095");
 
             pv096 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1587,6 +1688,7 @@
             pv096.name = "2A_15_60w_096";
             scene.add(pv096);
             setMessage("3D", "Loaded PV096."); 
+            createLabel("096");
 
             pv097 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1601,6 +1703,7 @@
             pv097.name = "6A_30_60w_097";
             scene.add(pv097);
             setMessage("3D", "Loaded PV097.");
+            createLabel("097");
 
             pv098 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1615,6 +1718,7 @@
             pv098.name = "1A_30_60w_098";
             scene.add(pv098);
             setMessage("3D", "Loaded PV098.");
+            createLabel("098");
 
             pv099 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1629,6 +1733,7 @@
             pv099.name = "6A_45_60w_099";
             scene.add(pv099);
             setMessage("3D", "Loaded PV099.");
+            createLabel("099");
 
             pv100 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1643,6 +1748,7 @@
             pv100.name = "1A_45_60w_100";
             scene.add(pv100);
             setMessage("3D", "Loaded PV100.");
+            createLabel("100");
 
             pv101 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1657,6 +1763,7 @@
             pv101.name = "2C_60_60w_101";
             scene.add(pv101);
             setMessage("3D", "Loaded PV101.");
+            createLabel("101");
 
             pv102 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 1, 1 ),
@@ -1671,6 +1778,7 @@
             pv102.name = "1C_60_60w_102";
             scene.add(pv102);
             setMessage("3D", "Loaded PV102.");
+            createLabel("102");
 
             //scene.fog = new THREE.FogExp2( 0x000000, 0.0128 );
             //renderer.setClearColor( scene.fog.color, 1 );
@@ -1703,6 +1811,32 @@
             */
             //console.log(camera.position);
             // if camera.position.y more than 90 then show module number
+            scene.traverse( function( node ) {
+                if (node.name != "") {
+                    //console.log(node.name);
+                    var _id = node.name;
+                    _id = "#" + _id.split("_")[-1];
+                    if (camera.position.y > 0) {
+                        //console.log(scene.children);
+                        var obj1 = scene.getObjectByName( node.name );
+                        var width = window.innerWidth, height = window.innerHeight;
+                        var widthHalf = width / 2, heightHalf = height / 2;
+
+                        var pos = obj1.position.clone();
+                        pos.project(camera);
+                        pos.x = ( pos.x * widthHalf ) + widthHalf;
+                        pos.y = - ( pos.y * heightHalf ) + heightHalf;
+                        $(_id).show();
+                        $(_id).css("top", pos.y + 'px');
+                        $(_id).css("left", (pos.x-10) + 'px');
+                        //console.log(pos);
+                    } else {
+                        $(_id).hide();
+                    }
+                }
+            });
+
+            /*
             if (camera.position.y > 0) {
                 //console.log(scene.children);
                 var obj1 = scene.getObjectByName( "2A_15_60e_001" );
@@ -1716,10 +1850,11 @@
                 $("#text001").show();
                 $("#text001").css("top", pos.y + 'px');
                 $("#text001").css("left", (pos.x-10) + 'px');
-                console.log(pos);
+                //console.log(pos);
             } else {
                 $("#text001").hide();
-            } 
+            }
+            */
  
             // update the picking ray with the camera and mouse position	
 	        raycaster.setFromCamera( mouse, camera );	
@@ -1734,13 +1869,6 @@
                 if (intersects[ i ].object.name != "") {
                     $("#obj-tooltip").text("Module: " + intersects[ i ].object.name);
                     $("#val-tooltip").text("Value: " + data[ intersects[ i ].object.name ]);
-                    if ( parseInt(data[ intersects[ i ].object.name ]) == 3){
-                        $("#stat-tooltip").text("Status: Connected");
-                    } else if ( parseInt(data[ intersects[ i ].object.name ]) == 0) {
-                        $("#stat-tooltip").text("Status: Not Connected");
-                    } else {
-                        $("#stat-tooltip").text("Status: No Data");
-                    }
                 }
             }
             
@@ -1827,22 +1955,19 @@ function myTimer() {
                 } else {
                     // 0 = red
                     // 1 = green
-                    if (value == "") {             
-                        colour = "0x808080";
+                    if (value <= 0) {
+                        colour = "0xff0000";
                     } else {
-                        if ( value == 0) {
-                            colour = "0xff0000";
-                        } else  if (value == 3) {
-                            colour = "0x00ff00";
-                        }
+                        colour = "0x00ff00";
                     }
-                    object = scene.getObjectByName( prop, true );
-                    object.material.color.setHex( colour );
+                
+                object = scene.getObjectByName( prop, true );
+                object.material.color.setHex( colour );    
                 }
             }
         },
-        error: function () {
-            console.log("Error.")
+            error: function () {
+                console.log("Error.")
         }
     });
 }
