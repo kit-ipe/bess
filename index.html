@@ -193,9 +193,10 @@
             var text2 = document.createElement('div');
             text2.style.position = 'absolute';
             //text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
+            text2.style.fontSize = "12px";
             text2.style.width = 100;
             text2.style.height = 100;
-            text2.style.padding = "5px";
+            text2.style.padding = "2px";
             text2.style.backgroundColor = '#303030';
             text2.style.color = '#fff';
             text2.innerHTML = name;
@@ -1801,23 +1802,18 @@
         
         var vector;    
         function render() {
-            /*
-            var speed = 0.0002;
-            var distance = 200;
-            var timer = Date.now() * speed;
-            camera.position.x = Math.cos(timer) * distance;
-            camera.position.z = Math.sin(timer) * distance;
-            camera.lookAt(scene.position);
-            */
             //console.log(camera.position);
             // if camera.position.y more than 90 then show module number
             scene.traverse( function( node ) {
                 if (node.name != "") {
                     //console.log(node.name);
                     var _id = node.name;
-                    _id = "#" + _id.split("_")[-1];
+                    _id = _id.split("_");
+                    _id = _id.pop();
+                    _id = "#text" + _id;
                     if (camera.position.y > 0) {
                         //console.log(scene.children);
+                        
                         var obj1 = scene.getObjectByName( node.name );
                         var width = window.innerWidth, height = window.innerHeight;
                         var widthHalf = width / 2, heightHalf = height / 2;
