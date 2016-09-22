@@ -86,11 +86,9 @@ def fetchDataADEI():
         return
     
     cache_data = {}
-    print "yo"
-    print time.time()
     curtime = int(time.time())
     #time_range = str((curtime-3600)) + "-" + str(curtime) 
-    time_range = str((curtime-60)) + "-" + str(curtime) 
+    time_range = str((curtime-1800)) + "-" + str(curtime) 
     for param in varname:
         print param
         dest = config['server'] + config['script']
