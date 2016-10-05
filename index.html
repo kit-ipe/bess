@@ -43,7 +43,7 @@
         <div class="bar-settings">
             <div class="bar-wrapper">
                 <div class="bar-setup">
-		    <input type="checkbox" onclick="if(this.checked){createLabel(name)}">label<br>
+		    <input type="checkbox" id="mylabel">label<br>
 		    <!--
 		    <span class="bl bar-hl">Start time</span>
                     <span class="br bar-info">
@@ -176,10 +176,19 @@
         var enableControls = true;
         var pv001;
         var data;
+	var labelFlag;
         var raycaster = new THREE.Raycaster();
         var mouse = new THREE.Vector2();
 
-        function onMouseMove( event ) {
+	$("#mylabel").change(function() {
+	    if(this.checked) {
+	        labelFlag = true;
+            } else {
+	        labelFlag = false;
+	    }
+        });
+        
+	function onMouseMove( event ) {
 	        // calculate mouse position in normalized device coordinates
 	        // (-1 to +1) for both components
 	        mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
@@ -191,24 +200,24 @@
         animate();
         window.addEventListener( 'mousemove', onMouseMove, false );
 
-
-        function createLabel(name) {
-            var text2 = document.createElement('div');
-            text2.style.position = 'absolute';
-            //text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
-            text2.style.fontSize = "12px";
-            text2.style.width = 100;
-            text2.style.height = 100;
-            text2.style.padding = "2px";
-            text2.style.backgroundColor = '#303030';
-            text2.style.color = '#fff';
-            text2.innerHTML = name;
-            //text2.style.top = 200 + 'px';
-            //text2.style.left = 200 + 'px';
-            text2.id = "text"+name;
-            document.body.appendChild(text2);
+	function createLabel(name) {
+	        var text2 = document.createElement('div');
+                text2.style.position = 'absolute';
+                //text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
+                text2.style.fontSize = "12px";
+                text2.style.width = 100;
+                text2.style.height = 100;
+                text2.style.padding = "2px";
+                text2.style.backgroundColor = '#303030';
+                text2.style.color = '#fff';
+                text2.innerHTML = name;
+                //text2.style.top = 200 + 'px';
+                //text2.style.left = 200 + 'px';
+                text2.id = "text"+name;
+                document.body.appendChild(text2);
         }
 
+            
         function init() {
             setMessage("3D", "Initialization.");
             scene = new THREE.Scene();
@@ -1916,10 +1925,10 @@
                     _id = _id.split("_");
                     _id = _id.pop();
                     _id = "#text" + _id;
-                    if (camera.position.y > 0) {
+                    if (camera.position.y > 0 && labelFlag == true) {
                         //console.log(scene.children);
                         
-                        var obj1 = scene.getObjectByName( node.name );
+			var obj1 = scene.getObjectByName( node.name );
                         var width = window.innerWidth, height = window.innerHeight;
                         var widthHalf = width / 2, heightHalf = height / 2;
 
@@ -1927,7 +1936,7 @@
                         pos.project(camera);
                         pos.x = ( pos.x * widthHalf ) + widthHalf;
                         pos.y = - ( pos.y * heightHalf ) + heightHalf;
-                        $(_id).show();
+			$(_id).show();
                         $(_id).css("top", pos.y + 'px');
                         $(_id).css("left", (pos.x-10) + 'px');
                         //console.log(pos);
@@ -1984,7 +1993,6 @@
         }
         
         $("#testTrigger").click(function() {
-            console.log("clicked");
             pv001.material.color.setHex( 0x00ff00 );
             pv001.scale.y = 10;
             pv001.position.y = 5.5;
@@ -1994,35 +2002,30 @@
 
         
         $("#message").mousedown(function() {
-            console.log("clicked");
             enableControls = false;
             setMessage("GUI", "De-select main scene. Click on main scene to re-select.");
             //render();
         });
         
         $("#orientation").mousedown(function() {
-            console.log("clicked");
             enableControls = false;
             setMessage("GUI", "De-select main scene. Click on main scene to re-select.");
             //render();
         });
         
         $("#settings").mousedown(function() {
-            console.log("clicked");
             enableControls = false;
             setMessage("GUI", "De-select main scene. Click on main scene to re-select.");
             //render();
         });
         
         $("#slider").mousedown(function() {
-            console.log("clicked");
             enableControls = false;
             setMessage("GUI", "De-select main scene. Click on main scene to re-select.");
             //render();
         });
         
         $("#container").click(function() {
-            console.log("clicked");
             enableControls = true;
             animate();
             setMessage("GUI", "Selected main scene.");
