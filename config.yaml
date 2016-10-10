@@ -1,0 +1,10 @@
+background: cps_02.png
+password: s0lar
+polling: '2'
+port: '9567'
+pw_designer: ipe-test
+script: services/getdata.php
+server: http://pcebessadei.competence-e.kit.edu/adei-battery/
+title: Bess
+type: adei
+username: bess
