@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200"
+   height="200"
+   viewBox="0 0 200 200"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="compass_01.svg">
+  <defs
+     id="defs4">
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect4164"
+       is_visible="true"
+       pattern="M 0,0 1,0"
+       copytype="single_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect4162"
+       is_visible="true"
+       pattern="M 0,0 1,0"
+       copytype="repeated_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect4164-4"
+       is_visible="true"
+       pattern="M 0,0 1,0"
+       copytype="single_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect4164-9"
+       is_visible="true"
+       pattern="M 0,0 1,0"
+       copytype="single_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect4164-6"
+       is_visible="true"
+       pattern="M 0,0 1,0"
+       copytype="single_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect4164-45"
+       is_visible="true"
+       pattern="M 0,0 1,0"
+       copytype="single_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       fuse_tolerance="0" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.60784314"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.1496046"
+     inkscape:cx="-43.569948"
+     inkscape:cy="111.59044"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     borderlayer="true"
+     inkscape:window-width="1680"
+     inkscape:window-height="975"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-852.36219)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:10.00051689;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path3358"
+       inkscape:path-effect="#path-effect4164"
+       sodipodi:type="arc"
+       sodipodi:cx="99.08799"
+       sodipodi:cy="952.57648"
+       sodipodi:rx="91.573166"
+       sodipodi:ry="97.853394"
+       d="m 190.66116,952.57648 c 0,25.32595 -9.51625,50.70112 -26.82116,69.19282 -16.58985,17.7276 -40.47257,28.6606 -64.75201,28.6606 -24.279432,0 -48.162149,-10.933 -64.751997,-28.6606 -1e-6,0 -5e-6,0 -1e-5,0 -17.304917,-18.4917 -26.8211591,-43.86687 -26.8211591,-69.19282 0,-25.32595 9.5162421,-50.70109 26.8211591,-69.1928 9e-6,0 1.8e-5,-10e-6 2.7e-5,-10e-6 16.589841,-17.72761 40.472553,-28.66059 64.75198,-28.66059 24.27944,0 48.16216,10.93299 64.75201,28.6606 17.30491,18.49171 26.82116,43.86685 26.82116,69.1928 z"
+       transform="matrix(0.59233852,0,0,0.60709623,42.487765,375.20129)" />
+    <rect
+       style="fill:none;stroke:#ffffff;stroke-width:5.32605457;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4184"
+       width="1.8623396"
+       height="13.957588"
+       x="99.319832"
+       y="886.98218" />
+    <rect
+       style="fill:none;stroke:#ffffff;stroke-width:6.27618837;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4184-4"
+       width="11.146646"
+       height="3.2382159"
+       x="40.016468"
+       y="953.28333" />
+    <rect
+       style="fill:none;stroke:#ffffff;stroke-width:5.32605457;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4184-5"
+       width="1.8623396"
+       height="13.957588"
+       x="100.94803"
+       y="1004.9109" />
+    <rect
+       style="fill:none;stroke:#ffffff;stroke-width:6.44191837;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4184-4-9"
+       width="12.376521"
+       height="3.0724859"
+       x="148.72394"
+       y="952.20319" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Ebene 2" />
+</svg>
