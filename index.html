@@ -98,69 +98,68 @@
     <script>
         // Global variable
         var img = null,
-	        needle = null,
-	        ctx = null;
+	    needle = null,
+	    ctx = null;
 
         function clearCanvas() {
-	        // clear canvas
-	        ctx.clearRect(0, 0, 200, 200);
+	    // clear canvas
+	    ctx.clearRect(0, 0, 200, 200);
         }
 
         function draw(degrees) {
             //console.log("Draw degree");
             //console.log(degrees);
+	    clearCanvas();
 
-	        clearCanvas();
+	    // Draw the compass onto the canvas
+	    ctx.drawImage(img, 0, 0);
 
-	        // Draw the compass onto the canvas
-	        ctx.drawImage(img, 0, 0);
+	    // Save the current drawing state
+	    ctx.save();
 
-	        // Save the current drawing state
-	        ctx.save();
+	    // Now move across and down half the 
+	    ctx.translate(100, 100);
 
-	        // Now move across and down half the 
-	        ctx.translate(100, 100);
+	    // Rotate around this point
+	    ctx.rotate(degrees * (Math.PI / 180));
 
-	        // Rotate around this point
-	        ctx.rotate(degrees * (Math.PI / 180));
+            // Draw the image back and up
+	    ctx.drawImage(needle, -100, -100);
 
-	        // Draw the image back and up
-	        ctx.drawImage(needle, -100, -100);
+	    // Restore the previous drawing state
+	    ctx.restore();
 
-	        // Restore the previous drawing state
-	        ctx.restore();
-
-	        // Increment the angle of the needle by 5 degrees
-	        //degrees += 5;
+	    // Increment the angle of the needle by 5 degrees
+	    //degrees += 5;
         }
 
         function imgLoaded() {
-	        // Image loaded event complete.  Start the timer
+	    // Image loaded event complete.  Start the timer
             draw(myvalue);
-	        //setInterval(draw, 100);
+	    //setInterval(draw, 100);
         }
 
         function init() {
-	        // Grab the compass element
-	        var canvas = document.getElementById('compass');
+	    // Grab the compass element
+	    var canvas = document.getElementById('compass');
 
-	        // Canvas supported?
-	        if (canvas.getContext('2d')) {
-		        ctx = canvas.getContext('2d');
+	    // Canvas supported?
+	    if (canvas.getContext('2d')) {
+	        ctx = canvas.getContext('2d');
 
-		        // Load the needle image
-		        needle = new Image();
-		        needle.src = 'http://katrin.kit.edu/static/needle_01.svg';
+	        // Load the needle image
+	        needle = new Image();
+	        needle.src = 'http://katrin.kit.edu/static/needle_01.svg';
 
-		        // Load the compass image
-		        img = new Image();
-		        img.src = 'http://katrin.kit.edu/static/compass_01.svg';
-		        img.onload = imgLoaded;
-	        } else {
-		        alert("Canvas not supported!");
-	        }
+	        // Load the compass image
+	        img = new Image();
+	        img.src = 'http://katrin.kit.edu/static/compass_01.svg';
+	        img.onload = imgLoaded;
+            } else {
+	        alert("Canvas not supported!");
+            }
         }
-    
+
         var myvalue = 0;
         init();
         
@@ -188,10 +187,10 @@
         });
         
 	function onMouseMove( event ) {
-	        // calculate mouse position in normalized device coordinates
-	        // (-1 to +1) for both components
-	        mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-	        mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;		
+	    // calculate mouse position in normalized device coordinates
+	    // (-1 to +1) for both components
+	    mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+	    mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;		
         }
 
 
@@ -200,20 +199,20 @@
         window.addEventListener( 'mousemove', onMouseMove, false );
 
 	function createLabel(name) {
-	        var text2 = document.createElement('div');
-                text2.style.position = 'absolute';
-                //text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
-                text2.style.fontSize = "12px";
-                text2.style.width = 100;
-                text2.style.height = 100;
-                text2.style.padding = "2px";
-                text2.style.backgroundColor = '#303030';
-                text2.style.color = '#fff';
-                text2.innerHTML = name;
-                //text2.style.top = 200 + 'px';
-                //text2.style.left = 200 + 'px';
-                text2.id = "text"+name;
-                document.body.appendChild(text2);
+	    var text2 = document.createElement('div');
+            text2.style.position = 'absolute';
+            //text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
+            text2.style.fontSize = "12px";
+            text2.style.width = 100;
+            text2.style.height = 100;
+            text2.style.padding = "2px";
+            text2.style.backgroundColor = '#303030';
+            text2.style.color = '#fff';
+            text2.innerHTML = name;
+            //text2.style.top = 200 + 'px';
+            //text2.style.left = 200 + 'px';
+            text2.id = "text"+name;
+            document.body.appendChild(text2);
         }
 
             
