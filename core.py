@@ -67,12 +67,6 @@ class RepeatedTimer(object):
 
 
 def fetchDataADEI():
-    if os.path.isfile(os.getcwd()+"/.mutex"):
-        #print("Process running...")
-        return
-    else:
-        #print("Created mutex")
-        file = open(os.getcwd()+'/.mutex', 'w+')
     
     with open("varname.yaml", 'r') as stream:
         try:
@@ -82,7 +76,6 @@ def fetchDataADEI():
             print(exc)
     if varname == None:
         print("Error: Empty varname file.")
-    	os.remove(os.getcwd()+"/.mutex")
         return
     
     cache_data = {}
@@ -121,7 +114,6 @@ def fetchDataADEI():
     shutil.copy(src_file, dst_file)
     
     
-    os.remove(os.getcwd()+"/.mutex")
 
     
 print "Start torrenting..."
@@ -160,8 +152,6 @@ class StopHandler(tornado.web.RequestHandler):
     def get(self):
         print "Stop fetchData"
         rt.stop()
-        if os.path.isfile(os.getcwd()+"/.mutex"):
-            os.remove(os.getcwd()+"/.mutex")
 
 
 class SetTimerHandler(tornado.web.RequestHandler):

@@ -32,7 +32,6 @@
         </div>
     </div>
     
-    <!--
     <div class="window-item window-unitem" id="settings">
         <div class="bar-header">
             <div class="bar-title noselect">Settings</div>
@@ -60,7 +59,6 @@
             </div>
         </div>
     </div> 
-    -->
     
     <div class="window-item" id="orientation">
         <div class="bar-header">
@@ -174,6 +172,7 @@
         var container;
         var mycontrol;
         var enableControls = true;
+        var enableRotate = false;
         var pv001;
         var data;
 	var labelFlag;
@@ -1908,6 +1907,12 @@
             } else {
                 mycontrol.enabled = false;
             }
+
+            if (enableRotate) {
+                mycontrol.rotate = true;
+            } else {
+                mycontrol.rotate = false;
+            }
             
             mycontrol.update();
 
@@ -2025,9 +2030,16 @@
             //render();
         });
         
-        $("#container").click(function() {
+        $("#container").mousedown(function() {
             enableControls = true;
+            enableRotate = true;
             animate();
+            setMessage("GUI", "Selected main scene.");
+        });
+        
+        $("#container").mouseup(function() {
+            enableRotate = false;
+            //animate();
             setMessage("GUI", "Selected main scene.");
         });
     </script>
