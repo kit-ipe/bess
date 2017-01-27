@@ -19,19 +19,24 @@ with open("./Development/data_toclean.txt", "r") as ins:
             elevation = int(infos[1])
             angle = int(infos[2][0:2])
 
+            direction = infos[2][-1]
+
             line8 = tmp[8].split(",")
             x_cur = float(line8[0].split("(")[1])
             z_cur = float(line8[1])
             y_cur = float(line8[2].split(")")[0])
 
             angle = 90 - angle
-            x = x_cur - (math.cos(math.radians(angle)) * (0.5 * math.cos(math.radians(elevation))))
+            if direction == "e":
+                x = x_cur - (math.cos(math.radians(angle)) * (0.5 * math.cos(math.radians(elevation))))
+            else:
+                x = x_cur + (math.cos(math.radians(angle)) * (0.5 * math.cos(math.radians(elevation))))
             y = y_cur - (math.sin(math.radians(angle)) * (0.5 * math.cos(math.radians(elevation))))
             z = (elevation / 15 * 0.1) + z_cur
 
 
             print x_cur, z_cur, y_cur
-            print new_name, elevation, angle
+            print new_name, elevation, angle, direction
             
             tmp[0] = " ".join(line1)
             line8_string = tmp[8]
