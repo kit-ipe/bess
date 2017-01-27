@@ -260,9 +260,9 @@
             light.position.set( 0, 1, 1 ).normalize();
             scene.add(light);
             setMessage("3D", "Added directional light.");
-                
+            
             pv001 = new THREE.Mesh(
-                new THREE.CubeGeometry( 4, 0.1, 1 ),
+                new THREE.CubeGeometry( 4, 0.1,1),
                 new THREE.MeshPhongMaterial( { 
                     color: 0xD3D3D3, 
                     specular: 0x050505,
@@ -272,11 +272,10 @@
             pv001.position.set(-18, 0.5, 29);
             pv001.rotateY( Math.PI / 3 );
 	    pv001.rotateX( Math.PI / 12);
-            pv001.name = "2A_15_60e_001";
+            pv001.name = "2A_15_60e_001_02";
             scene.add(pv001);
             setMessage("3D", "Loaded PV001.");
             createLabel("001");
-
 
             pv002 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 0.1, 1 ),
@@ -289,11 +288,10 @@
             pv002.position.set(-14, 0.5, 30);
             pv002.rotateY( Math.PI / 3 );
 	    pv002.rotateX( Math.PI / 12);
-            pv002.name = "5A_15_60e_002";
+            pv002.name = "5A_15_60e_002_02";
             scene.add(pv002);
             setMessage("3D", "Loaded PV002.");
             createLabel("002");
-
             pv003 = new THREE.Mesh(
                 new THREE.CubeGeometry( 4, 0.1, 1 ),
                 new THREE.MeshPhongMaterial( { 
@@ -305,7 +303,7 @@
             pv003.position.set(9.5, 0.5, 2);
             pv003.rotateY( Math.PI / 3 );
             pv003.rotateX( Math.PI / 6);
-	    pv003.name = "6A_30_60e_003";
+	    pv003.name = "6A_30_60e_003_02";
             scene.add(pv003);
             setMessage("3D", "Loaded PV003.");
             createLabel("003");
@@ -321,7 +319,7 @@
             pv004.position.set(6, 0.5, 1);
             pv004.rotateY( Math.PI / 3 );
             pv004.rotateX( Math.PI / 6);
-            pv004.name = "1A_30_60e_004";
+            pv004.name = "1A_30_60e_004_02";
             scene.add(pv004);
             setMessage("3D", "Loaded PV004.");
             createLabel("004");
@@ -337,7 +335,7 @@
             pv005.position.set(-8, 0.5, -3);
             pv005.rotateY( Math.PI / 3 );
 	    pv005.rotateX( Math.PI / 4);
-            pv005.name = "6A_45_60e_005";
+            pv005.name = "6A_45_60e_005_02";
             scene.add(pv005);
             setMessage("3D", "Loaded PV005.");
             createLabel("005");
@@ -353,7 +351,7 @@
             pv006.position.set(-4.5, 0.5, -2);
             pv006.rotateY( Math.PI / 3 );
 	    pv006.rotateX( Math.PI / 4);
-            pv006.name = "1A_45_60e_006";
+            pv006.name = "1A_45_60e_006_02";
             scene.add(pv006);
             setMessage("3D", "Loaded PV006.");
             createLabel("006");
@@ -369,7 +367,7 @@
             pv007.position.set(-5, 0.5, -16);
             pv007.rotateY( Math.PI / 3 );
 	    pv007.rotateX( Math.PI / 3);
-            pv007.name = "6C_60_60e_007";
+            pv007.name = "6C_60_60e_007_02";
             scene.add(pv007);
             setMessage("3D", "Loaded PV007.");
             createLabel("007");
@@ -385,7 +383,7 @@
             pv008.position.set(-7, 0.5, -9);
             pv008.rotateY( Math.PI / 3 );
 	    pv008.rotateX( Math.PI / 3);
-            pv008.name = "1C_60_60e_008";
+            pv008.name = "1C_60_60e_008_02";
             scene.add(pv008);
             setMessage("3D", "Loaded PV008.");
             createLabel("008");
@@ -401,7 +399,7 @@
             pv009.position.set(13, 0.5, 3);
             pv009.rotateY( Math.PI / 4 );
 	    pv009.rotateX( Math.PI / 12);
-            pv009.name = "2A_15_45e_009";
+            pv009.name = "2A_15_45e_009_02";
             scene.add(pv009);
             setMessage("3D", "Loaded PV009.");
             createLabel("009");
@@ -417,7 +415,7 @@
             pv010.position.set(18, 0.5, 4);
             pv010.rotateY( Math.PI / 4 );
 	    pv010.rotateX( Math.PI / 12);
-            pv010.name = "1A_15_45e_010";
+            pv010.name = "1A_15_45e_010_02";
             scene.add(pv010);
             setMessage("3D", "Loaded PV010.");
             createLabel("010");
@@ -433,7 +431,7 @@
             pv011.position.set(3.5, 0.5, -0.5);
             pv011.rotateY( Math.PI / 4 );
 	    pv011.rotateX( Math.PI / 12);
-            pv011.name = "4A_15_45e_011";
+            pv011.name = "4A_15_45e_011_02";
             scene.add(pv011);
             setMessage("3D", "Loaded PV011.");
             createLabel("011");
@@ -449,7 +447,7 @@
             pv012.position.set(17, 0.5, -1);
             pv012.rotateY( Math.PI / 4 );
 	    pv012.rotateX( Math.PI / 6);
-            pv012.name = "6A_30_45e_012";
+            pv012.name = "6A_30_45e_012_02";
             scene.add(pv012);
             setMessage("3D", "Loaded PV012.");
             createLabel("012");
@@ -465,7 +463,7 @@
             pv013.position.set(-2, 0.5, -1);
             pv013.rotateY( Math.PI / 4 );
 	    pv013.rotateX( Math.PI / 6);
-            pv013.name = "2A_30_45e_013";
+            pv013.name = "2A_30_45e_013_02";
             scene.add(pv013);
             setMessage("3D", "Loaded PV013.");
             createLabel("013");
@@ -481,7 +479,7 @@
             pv014.position.set(9, 0.5, -3);
             pv014.rotateY( Math.PI / 4 );
 	    pv014.rotateX( Math.PI / 4);
-            pv014.name = "2A_45_45e_014";
+            pv014.name = "2A_45_45e_014_02";
             scene.add(pv014);
             setMessage("3D", "Loaded PV014.");
             createLabel("014");
@@ -497,7 +495,7 @@
             pv015.position.set(12.5, 0.5, -2);
             pv015.rotateY( Math.PI / 4 );
 	    pv015.rotateX( Math.PI / 4);
-            pv015.name = "4A_45_45e_015";
+            pv015.name = "4A_45_45e_015_02";
             scene.add(pv015);
             setMessage("3D", "Loaded PV015.");
             createLabel("015");
@@ -513,7 +511,7 @@
             pv016.position.set(-1, 0.5, -22);
             pv016.rotateY( Math.PI / 4 );
 	    pv016.rotateX( Math.PI / 3);
-            pv016.name = "6A_60_45e_016";
+            pv016.name = "6A_60_45e_016_02";
             scene.add(pv016);
             setMessage("3D", "Loaded PV016.");
             createLabel("016");
@@ -529,7 +527,7 @@
             pv017.position.set(-2, 0.5, -26);
             pv017.rotateY( Math.PI / 4 );
 	    pv017.rotateX( Math.PI / 3);
-            pv017.name = "2A_60_45e_017";
+            pv017.name = "2A_60_45e_017_02";
             scene.add(pv017);
             setMessage("3D", "Loaded PV017.");
             createLabel("017");
@@ -545,7 +543,7 @@
             pv018.position.set(-8.5, 0.5, 23);
             pv018.rotateY( Math.PI / 6 );
 	    pv018.rotateX( Math.PI / 12);
-            pv018.name = "3A_15_30e_018";
+            pv018.name = "3A_15_30e_018_02";
             scene.add(pv018);
             setMessage("3D", "Loaded PV018.");
             createLabel("018");
@@ -561,7 +559,7 @@
             pv019.position.set(-10, 0.5, 26.5);
             pv019.rotateY( Math.PI / 6 );
 	    pv019.rotateX( Math.PI / 12);
-            pv019.name = "1A_15_30e_019";
+            pv019.name = "1A_15_30e_019_02";
             scene.add(pv019);
             setMessage("3D", "Loaded PV019.");
             createLabel("019");
@@ -577,7 +575,7 @@
             pv020.position.set(6, 0.5, 14);
             pv020.rotateY( Math.PI / 6 );
 	    pv020.rotateX( Math.PI / 12);
-            pv020.name = "1B_15_30e_020";
+            pv020.name = "1B_15_30e_020_02";
             scene.add(pv020);
             setMessage("3D", "Loaded PV020.");
             createLabel("020");
@@ -593,7 +591,7 @@
             pv021.position.set(12, 0.5, 19);
             pv021.rotateY( Math.PI / 6 );
 	    pv021.rotateX( Math.PI / 12);
-            pv021.name = "1D_15_30e_021";
+            pv021.name = "1D_15_30e_021_02";
             scene.add(pv021);
             setMessage("3D", "Loaded PV021.");
             createLabel("021");
@@ -609,7 +607,7 @@
             pv022.position.set(6, 0.5, 17);
             pv022.rotateY( Math.PI / 6 );
 	    pv022.rotateX( Math.PI / 12);
-            pv022.name = "1C_15_30e_022";
+            pv022.name = "1C_15_30e_022_02";
             scene.add(pv022);
             setMessage("3D", "Loaded PV022.");
             createLabel("022");
@@ -625,7 +623,7 @@
             pv023.position.set(9, 0.5, 18);
             pv023.rotateY( Math.PI / 6 );
             pv023.rotateX( Math.PI / 12);
-            pv023.name = "5A_15_30e_023";
+            pv023.name = "5A_15_30e_023_02";
             scene.add(pv023);
             setMessage("3D", "Loaded PV023.");
             createLabel("023");
@@ -641,7 +639,7 @@
             pv024.position.set(-16, 0.5, 24);
             pv024.rotateY( Math.PI / 6 );
 	    pv024.rotateX( Math.PI / 6);
-            pv024.name = "6D_30_30e_024";
+            pv024.name = "6D_30_30e_024_02";
             scene.add(pv024);
             setMessage("3D", "Loaded PV024.");
             createLabel("024");
@@ -657,7 +655,7 @@
             pv025.position.set(-15, 0.5, 26);
             pv025.rotateY( Math.PI / 6 );
 	    pv025.rotateX( Math.PI / 6);
-            pv025.name = "3D_30_30e_025";
+            pv025.name = "3D_30_30e_025_02";
             scene.add(pv025);
             setMessage("3D", "Loaded PV025.");
             createLabel("025");
@@ -673,7 +671,7 @@
             pv026.position.set(1.5, 0.5, -7.5);
             pv026.rotateY( Math.PI / 6 );
 	    pv026.rotateX( Math.PI / 4);
-            pv026.name = "6A_45_30e_026";
+            pv026.name = "6A_45_30e_026_02";
             scene.add(pv026);
             setMessage("3D", "Loaded PV026.");
             createLabel("026");
@@ -689,7 +687,7 @@
             pv027.position.set(-3, 0.5, -8.5);
             pv027.rotateY( Math.PI / 6 );
             pv027.rotateX( Math.PI / 4);
-            pv027.name = "3A_45_30e_027";
+            pv027.name = "3A_45_30e_027_02";
             scene.add(pv027);
             setMessage("3D", "Loaded PV027.");
             createLabel("027");
@@ -705,7 +703,7 @@
             pv028.position.set(3, 0.5, -4.5);
             pv028.rotateY( Math.PI / 6 );
 	    pv028.rotateX( Math.PI / 4);
-            pv028.name = "1A_45_30e_028";
+            pv028.name = "1A_45_30e_028_02";
             scene.add(pv028);
             setMessage("3D", "Loaded PV028.");
             createLabel("028");
@@ -721,7 +719,7 @@
             pv029.position.set(3, 0.5, -25);
             pv029.rotateY( Math.PI / 6 );
 	    pv029.rotateX( Math.PI / 3);
-            pv029.name = "6A_60_30e_029";
+            pv029.name = "6A_60_30e_029_02";
             scene.add(pv029);
             setMessage("3D", "Loaded PV029.");
             createLabel("029");
@@ -737,7 +735,7 @@
             pv030.position.set(1, 0.5, -13);
             pv030.rotateY( Math.PI / 6 );
 	    pv030.rotateX( Math.PI / 3);
-            pv030.name = "3A_60_30e_030";
+            pv030.name = "3A_60_30e_030_02";
             scene.add(pv030);
             setMessage("3D", "Loaded PV030.");
             createLabel("030");
@@ -753,7 +751,7 @@
             pv031.position.set(0, 0.5, -16);
             pv031.rotateY( Math.PI / 6 );
 	    pv031.rotateX( Math.PI / 3);
-            pv031.name = "1A_60_30e_031";
+            pv031.name = "1A_60_30e_031_02";
             scene.add(pv031);
             setMessage("3D", "Loaded PV031.");
             createLabel("031");
@@ -769,7 +767,7 @@
             pv032.position.set(7, 0.5, 10.5);
             pv032.rotateY( Math.PI / 12 );
 	    pv032.rotateX( Math.PI / 12);
-            pv032.name = "3A_15_15e_032";
+            pv032.name = "3A_15_15e_032_02";
             scene.add(pv032);
             setMessage("3D", "Loaded PV032.");
             createLabel("032");
@@ -785,7 +783,7 @@
             pv033.position.set(-10, 0.5, 29.5);
             pv033.rotateY( Math.PI / 12 );
 	    pv033.rotateX( Math.PI / 12);
-            pv033.name = "1B_15_15e_033";
+            pv033.name = "1B_15_15e_033_02";
             scene.add(pv033);
             setMessage("3D", "Loaded PV033.");
             createLabel("033");
@@ -801,7 +799,7 @@
             pv034.position.set(-11, 0.5, 31.5);
             pv034.rotateY( Math.PI / 12 );
 	    pv034.rotateX( Math.PI / 12);
-            pv034.name = "4B_15_15e_034";
+            pv034.name = "4B_15_15e_034_02";
             scene.add(pv034);
             setMessage("3D", "Loaded PV034.");
             createLabel("034");
@@ -817,7 +815,7 @@
             pv035.position.set(-13, 0.5, 19);
             pv035.rotateY( Math.PI / 12 );
 	    pv035.rotateX( Math.PI / 6);
-            pv035.name = "3A_30_15e_035";
+            pv035.name = "3A_30_15e_035_02";
             scene.add(pv035);
             setMessage("3D", "Loaded PV035.");
             createLabel("035");
@@ -833,7 +831,7 @@
             pv036.position.set(-13, 0.5, 21);
             pv036.rotateY( Math.PI / 12 );
 	    pv036.rotateX( Math.PI / 6);
-            pv036.name = "1A_30_15e_036";
+            pv036.name = "1A_30_15e_036_02";
             scene.add(pv036);
             setMessage("3D", "Loaded PV036.");
             createLabel("036");
@@ -849,7 +847,7 @@
             pv037.position.set(-7, 0.5, 20);
             pv037.rotateY( Math.PI / 12 );
 	    pv037.rotateX( Math.PI / 6);
-            pv037.name = "5A_30_15e_037";
+            pv037.name = "5A_30_15e_037_02";
             scene.add(pv037);
             setMessage("3D", "Loaded PV037.");
             createLabel("037");
@@ -865,7 +863,7 @@
             pv038.position.set(8, 0.5, -14);
             pv038.rotateY( Math.PI / 12 );
 	    pv038.rotateX( Math.PI / 4);
-            pv038.name = "3A_45_15e_038";
+            pv038.name = "3A_45_15e_038_02";
             scene.add(pv038);
             setMessage("3D", "Loaded PV038.");
             createLabel("038");
@@ -881,7 +879,7 @@
             pv039.position.set(8, 0.5, -10);
             pv039.rotateY( Math.PI / 12 );
 	    pv039.rotateX( Math.PI / 4);
-            pv039.name = "1A_45_15e_039";
+            pv039.name = "1A_45_15e_039_02";
             scene.add(pv039);
             setMessage("3D", "Loaded PV039.");
             createLabel("039");
@@ -897,7 +895,7 @@
             pv040.position.set(9, 0.5, -6.5);
             pv040.rotateY( Math.PI / 12 );
 	    pv040.rotateX( Math.PI / 4);
-            pv040.name = "4A_45_15e_040";
+            pv040.name = "4A_45_15e_040_02";
             scene.add(pv040);
             setMessage("3D", "Loaded PV040.");
             createLabel("040");
@@ -913,7 +911,7 @@
             pv041.position.set(4, 0.5, -20.5);
             pv041.rotateY( Math.PI / 12 );
 	    pv041.rotateX( Math.PI / 3);
-            pv041.name = "6A_60_15e_041";
+            pv041.name = "6A_60_15e_041_02";
             scene.add(pv041);
             setMessage("3D", "Loaded PV041.");
             createLabel("041");
@@ -929,7 +927,7 @@
             pv042.position.set(9, 0.5, -22);
             pv042.rotateY( Math.PI / 12 );
 	    pv042.rotateX( Math.PI / 3);
-            pv042.name = "3A_60_15e_042";
+            pv042.name = "3A_60_15e_042_02";
             scene.add(pv042);
             setMessage("3D", "Loaded PV042.");
             createLabel("042");
@@ -945,7 +943,7 @@
             pv043.position.set(8, 0.5, -17.5);
             pv043.rotateY( Math.PI / 12 );
 	    pv043.rotateX( Math.PI / 3);
-            pv043.name = "1A_60_15e_043";
+            pv043.name = "1A_60_15e_043_02";
             scene.add(pv043);
             setMessage("3D", "Loaded PV043.");
             createLabel("043");
@@ -961,7 +959,7 @@
             pv044.position.set(2, 0.5, 33);
             pv044.rotateY( Math.PI );
 	    pv044.rotateX( 11 * Math.PI / 12);
-            pv044.name = "3B_15_00s_044";
+            pv044.name = "3B_15_00s_044_02";
             scene.add(pv044);
             setMessage("3D", "Loaded PV044.");
             createLabel("044");
@@ -977,7 +975,7 @@
             pv045.position.set(5, 0.5, 34.5);
             pv045.rotateY( Math.PI );
 	    pv045.rotateX( 11 * Math.PI / 12);
-            pv045.name = "4B_15_00s_045";
+            pv045.name = "4B_15_00s_045_02";
             scene.add(pv045);
             setMessage("3D", "Loaded PV045."); 
             createLabel("045");
@@ -993,7 +991,7 @@
             pv046.position.set(-1, 0.5, 35);
             pv046.rotateY( Math.PI );
 	    pv046.rotateX( 89 * Math.PI / 90);
-            pv046.name = "6A_02_00s_046";
+            pv046.name = "6A_02_00s_046_02";
             scene.add(pv046);
             setMessage("3D", "Loaded PV046.");
             createLabel("046");
@@ -1009,7 +1007,7 @@
             pv047.position.set(3, 0.5, 36);
             pv047.rotateY( Math.PI );
 	    pv047.rotateX( 89 * Math.PI / 90);
-            pv047.name = "2A_02_00s_047";
+            pv047.name = "2A_02_00s_047_02";
             scene.add(pv047);
             setMessage("3D", "Loaded PV047.");
             createLabel("047");
@@ -1025,7 +1023,7 @@
             pv048.position.set(6, 0.5, 37);
             pv048.rotateY( Math.PI );
 	    pv048.rotateX( 89 * Math.PI / 90);
-            pv048.name = "1A_02_00s_048";
+            pv048.name = "1A_02_00s_048_02";
             scene.add(pv048);
             setMessage("3D", "Loaded PV048.");
             createLabel("048");
@@ -1041,7 +1039,7 @@
             pv049.position.set(-11, 0.5, 14);
             pv049.rotateY( Math.PI );
 	    pv049.rotateX( 5 * Math.PI / 6);
-            pv049.name = "3C_30_00s_049";
+            pv049.name = "3C_30_00s_049_02";
             scene.add(pv049);
             setMessage("3D", "Loaded PV049.");
             createLabel("049");
@@ -1057,7 +1055,7 @@
             pv050.position.set(-10.5, 0.5, 11);
             pv050.rotateY( Math.PI );
 	    pv050.rotateX( 5 * Math.PI / 6);
-            pv050.name = "1A_30_00s_050";
+            pv050.name = "1A_30_00s_050_02";
             scene.add(pv050);
             setMessage("3D", "Loaded PV050.");
             createLabel("050");
@@ -1073,7 +1071,7 @@
             pv051.position.set(8, 0.5, 7.5);
             pv051.rotateY( Math.PI );
 	    pv051.rotateX( 5 * Math.PI / 6);
-            pv051.name = "1B_30_00s_051";
+            pv051.name = "1B_30_00s_051_02";
             scene.add(pv051);
             setMessage("3D", "Loaded PV051.");
             createLabel("051");
@@ -1089,7 +1087,7 @@
             pv052.position.set(-10, 0.5, 8);
             pv052.rotateY( Math.PI );
 	    pv052.rotateX( 5 * Math.PI / 6);
-            pv052.name = "1D_30_00s_052";
+            pv052.name = "1D_30_00s_052_02";
             scene.add(pv052);
             setMessage("3D", "Loaded PV052.");
             createLabel("052");
@@ -1105,7 +1103,7 @@
             pv053.position.set(3, 0.5, 25);
             pv053.rotateY( Math.PI );
 	    pv053.rotateX( 5 * Math.PI / 6);
-            pv053.name = "1C_30_00s_053";
+            pv053.name = "1C_30_00s_053_02";
             scene.add(pv053);
             setMessage("3D", "Loaded PV053.");
             createLabel("053");
@@ -1121,7 +1119,7 @@
             pv054.position.set(2.5, 0.5, 28);
             pv054.rotateY( Math.PI );
 	    pv054.rotateX( 5 * Math.PI / 6);
-            pv054.name = "4D_30_00s_054";
+            pv054.name = "4D_30_00s_054_02";
             scene.add(pv054);
             setMessage("3D", "Loaded PV054.");
             createLabel("054");
@@ -1137,7 +1135,7 @@
             pv055.position.set(15, 0.5, -7);
             pv055.rotateY( Math.PI );
 	    pv055.rotateX( 3 * Math.PI / 4);
-            pv055.name = "3A_45_00s_055";
+            pv055.name = "3A_45_00s_055_02";
             scene.add(pv055);
             setMessage("3D", "Loaded PV055.");
             createLabel("055");
@@ -1153,7 +1151,7 @@
             pv056.position.set(15, 0.5, -11);
             pv056.rotateY( Math.PI );
 	    pv056.rotateX( 3 * Math.PI / 4);
-            pv056.name = "4A_45_00s_056";
+            pv056.name = "4A_45_00s_056_02";
             scene.add(pv056);
             setMessage("3D", "Loaded PV056.");
             createLabel("056");
@@ -1169,7 +1167,7 @@
             pv057.position.set(9, 0.5, -27.5);
             pv057.rotateY( Math.PI );
 	    pv057.rotateX( 2 * Math.PI / 3);
-            pv057.name = "6A_60_00s_057";
+            pv057.name = "6A_60_00s_057_02";
             scene.add(pv057);
             setMessage("3D", "Loaded PV057.");
             createLabel("057");
@@ -1185,7 +1183,7 @@
             pv058.position.set(0, 0.5, -30);
             pv058.rotateY( Math.PI );
 	    pv058.rotateX( 2 * Math.PI / 3);
-            pv058.name = "3A_60_00s_058";
+            pv058.name = "3A_60_00s_058_02";
             scene.add(pv058);
             setMessage("3D", "Loaded PV058.");
             createLabel("058");
@@ -1201,7 +1199,7 @@
             pv059.position.set(8, 0.5, 25.5);
             pv059.rotateY( 11 * Math.PI / 12 );
 	    pv059.rotateX( 11 * Math.PI / 12);
-            pv059.name = "3B_15_15w_059";
+            pv059.name = "3B_15_15w_059_02";
             scene.add(pv059);
             setMessage("3D", "Loaded PV059.");
             createLabel("059");
@@ -1217,7 +1215,7 @@
             pv060.position.set(2.5, 0.5, 31);
             pv060.rotateY( 11 * Math.PI / 12 );
 	    pv060.rotateX( 11 * Math.PI / 12);
-            pv060.name = "1B_15_15w_060";
+            pv060.name = "1B_15_15w_060_02";
             scene.add(pv060);
             setMessage("3D", "Loaded PV060.");
             createLabel("060");
@@ -1233,7 +1231,7 @@
             pv061.position.set(9.5, 0.5, 35.5);
             pv061.rotateY( 11 * Math.PI / 12 );
 	    pv061.rotateX( 11 * Math.PI / 12);
-            pv061.name = "4B_15_15w_061";
+            pv061.name = "4B_15_15w_061_02";
             scene.add(pv061);
             setMessage("3D", "Loaded PV061.");
             createLabel("061");
@@ -1249,7 +1247,7 @@
             pv062.position.set(8, 0.5, 22.15);
             pv062.rotateY( 11 * Math.PI / 12 );
 	    pv062.rotateX( 5 * Math.PI / 6);
-            pv062.name = "3A_30_15w_062";
+            pv062.name = "3A_30_15w_062_02";
             scene.add(pv062);
             setMessage("3D", "Loaded PV062.");
             createLabel("062");
@@ -1265,7 +1263,7 @@
             pv063.position.set(12.5, 0.5, 23.25);
             pv063.rotateY( 11 * Math.PI / 12 );
 	    pv063.rotateX( 5 * Math.PI / 6);
-            pv063.name = "1A_30_15w_063";
+            pv063.name = "1A_30_15w_063_02";
             scene.add(pv063);
             setMessage("3D", "Loaded PV063.");
             createLabel("063");
@@ -1281,7 +1279,7 @@
             pv064.position.set(3.5, 0.5, 21);
             pv064.rotateY( 11 * Math.PI / 12 );
 	    pv064.rotateX( 5 * Math.PI / 6);
-            pv064.name = "5A_30_15w_064";
+            pv064.name = "5A_30_15w_064_02";
             scene.add(pv064);
             setMessage("3D", "Loaded PV064.");
             createLabel("064");
@@ -1297,7 +1295,7 @@
             pv065.position.set(16, 0.5, -19);
             pv065.rotateY( 11 * Math.PI / 12 );
 	    pv065.rotateX( 3 * Math.PI / 4);
-            pv065.name = "3A_45_15w_065";
+            pv065.name = "3A_45_15w_065_02";
             scene.add(pv065);
             setMessage("3D", "Loaded PV065.");
             createLabel("065");
@@ -1313,7 +1311,7 @@
             pv066.position.set(17, 0.5, -22);
             pv066.rotateY( 11 * Math.PI / 12 );
 	    pv066.rotateX( 3 * Math.PI / 4);
-            pv066.name = "1A_45_15w_066";
+            pv066.name = "1A_45_15w_066_02";
             scene.add(pv066);
             setMessage("3D", "Loaded PV066.");
             createLabel("066");
@@ -1329,7 +1327,7 @@
             pv067.position.set(15, 0.5, -15);
             pv067.rotateY( 11 * Math.PI / 12 );
 	    pv067.rotateX( 3 * Math.PI / 4);
-            pv067.name = "4A_45_15w_067";
+            pv067.name = "4A_45_15w_067_02";
             scene.add(pv067);
             setMessage("3D", "Loaded PV067.");
             createLabel("067");
@@ -1345,7 +1343,7 @@
             pv068.position.set(15, 0.5, -27);
             pv068.rotateY( 11 * Math.PI / 12 );
 	    pv068.rotateX( 2 * Math.PI / 3);
-            pv068.name = "6A_60_15w_068";
+            pv068.name = "6A_60_15w_068_02";
             scene.add(pv068);
             setMessage("3D", "Loaded PV068.");
             createLabel("068");
@@ -1361,7 +1359,7 @@
             pv069.position.set(20, 0.5, -25.75);
             pv069.rotateY( 11 * Math.PI / 12 );
 	    pv069.rotateX( 2 * Math.PI / 3);
-            pv069.name = "3A_60_15w_069";
+            pv069.name = "3A_60_15w_069_02";
             scene.add(pv069);
             setMessage("3D", "Loaded PV069.");
             createLabel("069");
@@ -1377,7 +1375,7 @@
             pv070.position.set(25, 0.5, -24.5);
             pv070.rotateY( 11 * Math.PI / 12 );
 	    pv070.rotateX( 2 * Math.PI / 3);
-            pv070.name = "1A_60_15w_070";
+            pv070.name = "1A_60_15w_070_02";
             scene.add(pv070);
             setMessage("3D", "Loaded PV070.");
             createLabel("070");
@@ -1393,7 +1391,7 @@
             pv071.position.set(17, 0.5, 25);
             pv071.rotateY( 11 * Math.PI / 6 );
 	    pv071.rotateX( Math.PI / 12);
-            pv071.name = "3A_15_30w_071";
+            pv071.name = "3A_15_30w_071_02";
             scene.add(pv071);
             setMessage("3D", "Loaded PV071.");
             createLabel("071");
@@ -1409,7 +1407,7 @@
             pv072.position.set(6.75, 0.5, 32.5);
             pv072.rotateY( 11 * Math.PI / 6 );
 	    pv072.rotateX( Math.PI / 12);
-            pv072.name = "1A_15_30w_072";
+            pv072.name = "1A_15_30w_072_02";
             scene.add(pv072);
             setMessage("3D", "Loaded PV072.");
             createLabel("072");
@@ -1425,7 +1423,7 @@
             pv073.position.set(10.5, 0.5, 38.25);
             pv073.rotateY( 11 * Math.PI / 6 );
 	    pv073.rotateX( Math.PI / 12);
-            pv073.name = "1B_15_30w_073";
+            pv073.name = "1B_15_30w_073_02";
             scene.add(pv073);
             setMessage("3D", "Loaded PV073.");
             createLabel("073");
@@ -1441,7 +1439,7 @@
             pv074.position.set(12.5, 0.5, 27.5);
             pv074.rotateY( 11 * Math.PI / 6 );
 	    pv074.rotateX( Math.PI / 12);
-            pv074.name = "1D_15_30w_074";
+            pv074.name = "1D_15_30w_074_02";
             scene.add(pv074);
             setMessage("3D", "Loaded PV074.");
             createLabel("074");
@@ -1457,7 +1455,7 @@
             pv075.position.set(7.5, 0.5, 29.5);
             pv075.rotateY( 11 * Math.PI / 6 );
 	    pv075.rotateX( Math.PI / 12);
-            pv075.name = "1C_15_30w_075";
+            pv075.name = "1C_15_30w_075_02";
             scene.add(pv075);
             createLabel("075");
 
@@ -1472,7 +1470,7 @@
             pv076.position.set(11, 0.5, 33.5);
             pv076.rotateY( 11 * Math.PI / 6 );
 	    pv076.rotateX( Math.PI / 12);
-            pv076.name = "5D_15_30w_076";
+            pv076.name = "5D_15_30w_076_02";
             scene.add(pv076);
             setMessage("3D", "Loaded PV076.");
             createLabel("076");
@@ -1488,7 +1486,7 @@
             pv077.position.set(13, 0.5, 12);
             pv077.rotateY( 11 * Math.PI / 6 );
 	    pv077.rotateX( Math.PI / 6);
-            pv077.name = "6D_30_30w_077";
+            pv077.name = "6D_30_30w_077_02";
             scene.add(pv077);
             setMessage("3D", "Loaded PV077.");
             createLabel("077");
@@ -1504,7 +1502,7 @@
             pv078.position.set(12, 0.5, 15);
             pv078.rotateY( 11 * Math.PI / 6 );
 	    pv078.rotateX( Math.PI / 6);
-            pv078.name = "3D_30_30w_078";
+            pv078.name = "3D_30_30w_078_02";
             scene.add(pv078);
             setMessage("3D", "Loaded PV078.");
             createLabel("078");
@@ -1520,7 +1518,7 @@
             pv079.position.set(14, 0.5, 9);
             pv079.rotateY( 11 * Math.PI / 6 );
 	    pv079.rotateX( Math.PI / 6);
-            pv079.name = "1D_30_30w_079";
+            pv079.name = "1D_30_30w_079_02";
             scene.add(pv079);
             setMessage("3D", "Loaded PV079.");
             createLabel("079");
@@ -1536,7 +1534,7 @@
             pv080.position.set(20, 0.5, -4);
             pv080.rotateY( 11 * Math.PI / 6 );
 	    pv080.rotateX( Math.PI / 4);
-            pv080.name = "3A_45_30w_080";
+            pv080.name = "3A_45_30w_080_02";
             scene.add(pv080);
             setMessage("3D", "Loaded PV080.");
             createLabel("080");
@@ -1552,7 +1550,7 @@
             pv081.position.set(21, 0.5, -7);
             pv081.rotateY( 11 * Math.PI / 6 );
 	    pv081.rotateX( Math.PI / 4);
-            pv081.name = "1A_45_30w_081";
+            pv081.name = "1A_45_30w_081_02";
             scene.add(pv081);
             setMessage("3D", "Loaded PV081.");
             createLabel("081");
@@ -1568,7 +1566,7 @@
             pv082.position.set(21.5, 0.5, -11);
             pv082.rotateY( 11 * Math.PI / 6 );
             pv082.rotateX( Math.PI / 4);
-            pv082.name = "5A_45_30w_082";
+            pv082.name = "5A_45_30w_082_02";
             scene.add(pv082);
             setMessage("3D", "Loaded PV082.");
             createLabel("082");
@@ -1584,7 +1582,7 @@
             pv083.position.set(24, 0.5, -21);
             pv083.rotateY( 11 * Math.PI / 6 );
 	    pv083.rotateX( Math.PI / 3);
-            pv083.name = "6A_60_30w_083";
+            pv083.name = "6A_60_30w_083_02";
             scene.add(pv083);
             setMessage("3D", "Loaded PV083.");
             createLabel("083");
@@ -1600,7 +1598,7 @@
             pv084.position.set(23, 0.5, -18);
             pv084.rotateY( 11 * Math.PI / 6 );
 	    pv084.rotateX( Math.PI / 3);
-            pv084.name = "3A_60_30w_084";
+            pv084.name = "3A_60_30w_084_02";
             scene.add(pv084);
             setMessage("3D", "Loaded PV084.");
             createLabel("084");
@@ -1616,7 +1614,7 @@
             pv085.position.set(23, 0.5, -14);
             pv085.rotateY( 11 * Math.PI / 6 );
 	    pv085.rotateX( Math.PI / 3);
-            pv085.name = "1A_60_30w_085";
+            pv085.name = "1A_60_30w_085_02";
             scene.add(pv085);
             setMessage("3D", "Loaded PV085.");
             createLabel("085");
@@ -1632,7 +1630,7 @@
             pv086.position.set(12, 0.5, 30.5);
             pv086.rotateY( 7 * Math.PI / 4 );
 	    pv086.rotateX( Math.PI / 12);
-            pv086.name = "2A_15_45w_086";
+            pv086.name = "2A_15_45w_086_02";
             scene.add(pv086);
             setMessage("3D", "Loaded PV086.");
             createLabel("086");
@@ -1648,7 +1646,7 @@
             pv087.position.set(16, 0.5, 30.5);
             pv087.rotateY( 7 * Math.PI / 4 );
 	    pv087.rotateX( Math.PI / 12);
-            pv087.name = "1A_15_45w_087";
+            pv087.name = "1A_15_45w_087_02";
             scene.add(pv087);
             setMessage("3D", "Loaded PV087.");
             createLabel("087");
@@ -1664,7 +1662,7 @@
             pv088.position.set(17, 0.5, 27.5);
             pv088.rotateY( 7 * Math.PI / 4 );
 	    pv088.rotateX( Math.PI / 12);
-            pv088.name = "4A_15_45w_088";
+            pv088.name = "4A_15_45w_088_02";
             scene.add(pv088);
             setMessage("3D", "Loaded PV088.");
             createLabel("088");
@@ -1680,7 +1678,7 @@
             pv089.position.set(20, 0.5, 11);
             pv089.rotateY( 7 * Math.PI / 4 );
             pv089.rotateX( Math.PI / 6);
-            pv089.name = "6A_30_45w_089";
+            pv089.name = "6A_30_45w_089_02";
             scene.add(pv089);
             setMessage("3D", "Loaded PV089.");
             createLabel("089");
@@ -1696,7 +1694,7 @@
             pv090.position.set(19, 0.5, 14);
             pv090.rotateY( 7 * Math.PI / 4 );
 	    pv090.rotateX( Math.PI / 6);
-            pv090.name = "2A_30_45w_090";
+            pv090.name = "2A_30_45w_090_02";
             scene.add(pv090);
             setMessage("3D", "Loaded PV090.");
             createLabel("090");
@@ -1712,7 +1710,7 @@
             pv091.position.set(29, 0.5, -14);
             pv091.rotateY( 7 * Math.PI / 4 );
 	    pv091.rotateX( Math.PI / 4);
-            pv091.name = "2C_45_45w_091";
+            pv091.name = "2C_45_45w_091_02";
             scene.add(pv091);
             setMessage("3D", "Loaded PV091.");
             createLabel("091");
@@ -1728,7 +1726,7 @@
             pv092.position.set(23, 0.5, 7);
             pv092.rotateY( 7 * Math.PI / 4 );
 	    pv092.rotateX( Math.PI / 4);
-            pv092.name = "4C_45_45w_092";
+            pv092.name = "4C_45_45w_092_02";
             scene.add(pv092);
             setMessage("3D", "Loaded PV092.");
             createLabel("092");
@@ -1744,7 +1742,7 @@
             pv093.position.set(30, 0.5, -18);
             pv093.rotateY( 7 * Math.PI / 4 );
 	    pv093.rotateX( Math.PI / 3);
-            pv093.name = "6A_60_45w_093";
+            pv093.name = "6A_60_45w_093_02";
             scene.add(pv093);
             setMessage("3D", "Loaded PV093.");
             createLabel("093");
@@ -1760,7 +1758,7 @@
             pv094.position.set(30, 0.5, -22);
             pv094.rotateY( 7 * Math.PI / 4 );
 	    pv094.rotateX( Math.PI / 3);
-            pv094.name = "2A_60_45w_094";
+            pv094.name = "2A_60_45w_094_02";
             scene.add(pv094);
             setMessage("3D", "Loaded PV094.");
             createLabel("094");
@@ -1776,7 +1774,7 @@
             pv095.position.set(15, 0.5, 34);
             pv095.rotateY( 5 * Math.PI / 3);
 	    pv095.rotateX( Math.PI / 12);
-            pv095.name = "6A_15_60w_095";
+            pv095.name = "6A_15_60w_095_02";
             scene.add(pv095);
             setMessage("3D", "Loaded PV095."); 
             createLabel("095");
@@ -1792,7 +1790,7 @@
             pv096.position.set(14, 0.5, 37);
             pv096.rotateY( 5 * Math.PI / 3);
 	    pv096.rotateX( Math.PI / 12);
-            pv096.name = "2A_15_60w_096";
+            pv096.name = "2A_15_60w_096_02";
             scene.add(pv096);
             setMessage("3D", "Loaded PV096."); 
             createLabel("096");
@@ -1808,7 +1806,7 @@
             pv097.position.set(16, 0.5, 20);
             pv097.rotateY( 5 * Math.PI / 3);
 	    pv097.rotateX( Math.PI / 6);
-            pv097.name = "6A_30_60w_097";
+            pv097.name = "6A_30_60w_097_02";
             scene.add(pv097);
             setMessage("3D", "Loaded PV097.");
             createLabel("097");
@@ -1824,7 +1822,7 @@
             pv098.position.set(17, 0.5, 17);
             pv098.rotateY( 5 * Math.PI / 3);
 	    pv098.rotateX( Math.PI / 6);
-            pv098.name = "1A_30_60w_098";
+            pv098.name = "1A_30_60w_098_02";
             scene.add(pv098);
             setMessage("3D", "Loaded PV098.");
             createLabel("098");
@@ -1840,7 +1838,7 @@
             pv099.position.set(25, 0.5, -1);
             pv099.rotateY( 5 * Math.PI / 3);
 	    pv099.rotateX( Math.PI / 4);
-            pv099.name = "6A_45_60w_099";
+            pv099.name = "6A_45_60w_099_02";
             scene.add(pv099);
             setMessage("3D", "Loaded PV099.");
             createLabel("099");
@@ -1856,7 +1854,7 @@
             pv100.position.set(22, 0.5, 2);
             pv100.rotateY( 5 * Math.PI / 3);
 	    pv100.rotateX( Math.PI / 4);
-            pv100.name = "1A_45_60w_100";
+            pv100.name = "1A_45_60w_100_02";
             scene.add(pv100);
             setMessage("3D", "Loaded PV100.");
             createLabel("100");
@@ -1872,7 +1870,7 @@
             pv101.position.set(28, 0.5, -10);
             pv101.rotateY( 5 * Math.PI / 3);
 	    pv101.rotateX( Math.PI / 3);
-            pv101.name = "2C_60_60w_101";
+            pv101.name = "2C_60_60w_101_02";
             scene.add(pv101);
             setMessage("3D", "Loaded PV101.");
             createLabel("101");
@@ -1888,7 +1886,7 @@
             pv102.position.set(26, 0.5, -6);
             pv102.rotateY( 5 * Math.PI / 3);
 	    pv102.rotateX( Math.PI / 3);
-            pv102.name = "1C_60_60w_102";
+            pv102.name = "1C_60_60w_102_02";
             scene.add(pv102);
             setMessage("3D", "Loaded PV102.");
             createLabel("102");
@@ -1950,25 +1948,6 @@
                 }
             });
 
-            /*
-            if (camera.position.y > 0) {
-                //console.log(scene.children);
-                var obj1 = scene.getObjectByName( "2A_15_60e_001" );
-                var width = window.innerWidth, height = window.innerHeight;
-                var widthHalf = width / 2, heightHalf = height / 2;
-
-                var pos = obj1.position.clone();
-                pos.project(camera);
-                pos.x = ( pos.x * widthHalf ) + widthHalf;
-                pos.y = - ( pos.y * heightHalf ) + heightHalf;
-                $("#text001").show();
-                $("#text001").css("top", pos.y + 'px');
-                $("#text001").css("left", (pos.x-10) + 'px');
-                //console.log(pos);
-            } else {
-                $("#text001").hide();
-            }
-            */
  
             // update the picking ray with the camera and mouse position	
 	        raycaster.setFromCamera( mouse, camera );	
@@ -1996,6 +1975,7 @@
             draw(degree);
         }
         
+        /*
         $("#testTrigger").click(function() {
             pv001.material.color.setHex( 0x00ff00 );
             pv001.scale.y = 10;
@@ -2003,6 +1983,7 @@
             setMessage("3D", "Updated PV001.");
             render();
         });
+        */
 
         
         $("#message").mousedown(function() {
@@ -2076,8 +2057,11 @@ function myTimer() {
                         colour = "0x00ff00";
                     }
                 
-                object = scene.getObjectByName( prop, true );
-                object.material.color.setHex( colour );    
+                    object = scene.getObjectByName( prop, true );
+                    console.log(prop);
+                    if (prop.endsWith("_02")) {
+                        object.material.color.setHex( colour );
+                    }
                 }
             }
         },

@@ -1,6 +1,6 @@
 background: cps_02.png
 password: s0lar
-polling: '30'
+polling: '120'
 port: '9567'
 pw_designer: ipe-test
 script: services/getdata.php
