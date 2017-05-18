@@ -43,9 +43,34 @@
             <div class="bar-wrapper">
                 <div class="bar-setup">
 		    
+		    <span class="bl bar-hl">Select modes</span>
+                    <span class="br bar-info">
+		        <input type="radio" name="moduleMode" value="0" checked>On/Off<br>
+                        <input type="radio" name="moduleMode" value="1">Gradient
+                    </span>
+                </div>
+                
+                <div class="bar-setup">
+		    
 		    <span class="bl bar-hl">Show module number</span>
                     <span class="br bar-info">
 		        <input type="checkbox" id="mylabel">
+                    </span>
+                </div>
+                <div class="bar-setup">
+                    <span class="bl bar-hl">Show module type</span>
+                    <span class="br bar-info">
+		        <input type="checkbox" id="myType">
+                    </span>
+
+                </div>
+                <div class="bar-setup">
+                    <span class="bl bar-hl"></span>
+                    <span class="br bar-info">
+		        <input type="radio" name="moduleType" value="A">A<br>
+                        <input type="radio" name="moduleType" value="B">B<br>
+                        <input type="radio" name="moduleType" value="C">C<br>
+                        <input type="radio" name="moduleType" value="D">D
                     </span>
 		    
                 </div>
@@ -87,6 +112,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="{{ static_url("scripts.js") }}"></script>
     <script src="{{ static_url("three.min.js") }}"></script>
+    <script src="{{ static_url("Lut.js") }}"></script>
     <script src="{{ static_url("OrbitControls.js") }}"></script>
     <script>
         // Global variable
@@ -158,7 +184,9 @@
         
         
     </script>
+    <!--
     <script src="https://dl.dropboxusercontent.com/u/3587259/Code/Threejs/CSS3DRenderer.js"></script>
+    -->
     <script>
         var camera, scene, renderer;
         var container;
@@ -178,6 +206,8 @@
 	    }
         });
         
+
+
 	function onMouseMove( event ) {
 	    // calculate mouse position in normalized device coordinates
 	    // (-1 to +1) for both components
@@ -3346,6 +3376,39 @@ scene.add(pv101a);
 
             //scene.fog = new THREE.FogExp2( 0x000000, 0.0128 );
             //renderer.setClearColor( scene.fog.color, 1 );
+
+
+	    lut = new THREE.Lut( 'rainbow', 512 );
+            lut.setMax( 2000 );
+            lut.setMin( 0 );
+
+            legend = lut.setLegendOn();
+            legend.name = "legend";
+            createLabel("legend_title");
+            createLabel("legend_low");
+            createLabel("legend_mid");
+            createLabel("legend_high");
+
+            $("#textlegend_title").css("fontSize", "16px");
+            $("#textlegend_title").text("Pca [W]");
+
+            $("#textlegend_mid").css("fontSize", "16px");
+            $("#textlegend_mid").css("color", "black");
+            $("#textlegend_mid").css("background-color", "transparent");
+            $("#textlegend_mid").text("5.0");
+
+            $("#textlegend_low").css("fontSize", "16px");
+            $("#textlegend_low").css("color", "black");
+            $("#textlegend_low").css("background-color", "transparent");
+            $("#textlegend_low").text("< 0.0");
+	    
+            $("#textlegend_high").css("fontSize", "16px");
+            $("#textlegend_high").css("color", "black");
+            $("#textlegend_high").css("background-color", "transparent");
+            $("#textlegend_high").text("> 10.0");
+
+            scene.add ( legend );
+
             render();
         }
             
@@ -3368,14 +3431,69 @@ scene.add(pv101a);
 
             render();
         }
-        
-        var vector;    
+
+        var vector;
+        var legend;
+        var width, height;
+        var widthHalf, heightHalf;
+        var pos_title, pos_high, pos_low, pos_mid;
+
         function render() {
             //console.log(camera.position);
             // if camera.position.y more than 90 then show module number
             scene.traverse( function( node ) {
                 if (node.name != "") {
                     //console.log(node.name);
+
+                    if (node.name == "legend") {
+			legend = scene.getObjectByName( "legend" );
+                        width = window.innerWidth;
+                        height = window.innerHeight;
+                        widthHalf = width / 2.0;
+                        heightHalf = height / 2.0;
+                        pos_title = legend.position.clone();
+                        
+                        pos_title.y = pos_title.y + 9;
+                        pos_title.x = pos_title.x - 1;
+                        pos_title.project(camera);
+                        pos_title.x = ( pos_title.x * widthHalf ) + widthHalf;
+                        pos_title.y = - ( pos_title.y * heightHalf ) + heightHalf;
+			$("#textlegend_title").show();
+                        $("#textlegend_title").css("top", (pos_title.y) + 'px');
+                        $("#textlegend_title").css("left", (pos_title.x) + 'px');
+                        
+                        pos_mid = legend.position.clone();
+                        pos_mid.y = pos_mid.y + 0;
+                        pos_mid.x = pos_mid.x + 2;
+                        pos_mid.project(camera);
+                        pos_mid.x = ( pos_mid.x * widthHalf ) + widthHalf;
+                        pos_mid.y = - ( pos_mid.y * heightHalf ) + heightHalf;
+			$("#textlegend_mid").show();
+                        $("#textlegend_mid").css("top", (pos_mid.y) + 'px');
+                        $("#textlegend_mid").css("left", (pos_mid.x) + 'px');
+                        
+                        pos_low = legend.position.clone();
+                        pos_low.y = pos_low.y - 5;
+                        pos_low.x = pos_low.x + 2;
+                        pos_low.project(camera);
+                        pos_low.x = ( pos_low.x * widthHalf ) + widthHalf;
+                        pos_low.y = - ( pos_low.y * heightHalf ) + heightHalf;
+			$("#textlegend_low").show();
+                        $("#textlegend_low").css("top", (pos_low.y) + 'px');
+                        $("#textlegend_low").css("left", (pos_low.x) + 'px');
+                        
+                        pos_high = legend.position.clone();
+                        pos_high.y = pos_high.y + 6;
+                        pos_high.x = pos_high.x + 2;
+                        pos_high.project(camera);
+                        pos_high.x = ( pos_high.x * widthHalf ) + widthHalf;
+                        pos_high.y = - ( pos_high.y * heightHalf ) + heightHalf;
+			$("#textlegend_high").show();
+                        $("#textlegend_high").css("top", (pos_high.y) + 'px');
+                        $("#textlegend_high").css("left", (pos_high.x) + 'px');
+
+                    }
+
                     var _id = node.name;
                     _id = _id.split("_")[3];
                     //console.log(_id2[3]);
@@ -3399,9 +3517,38 @@ scene.add(pv101a);
                     } else {
                         $(_id).hide();
                     }
+
+
+
                 }
             });
 
+            var mode = $('input[type=radio][name=moduleMode]:checked').val();
+            if (mode == "0") {
+		$("#textlegend_title").hide();
+		$("#textlegend_high").hide();
+		$("#textlegend_mid").hide();
+		$("#textlegend_low").hide();
+		legend_object = scene.getObjectByName( "legend" );
+                if (legend_object) {
+                    scene.remove(legend_object);
+                }
+                        
+            } else if (mode == "1") {
+		$("#textlegend_title").show();
+		$("#textlegend_high").show();
+		$("#textlegend_mid").show();
+		$("#textlegend_low").show();
+                legend_object = scene.getObjectByName( "legend", true );
+                if (!legend_object) {
+		    lut = new THREE.Lut( 'rainbow', 512 );
+		    lut.setMax( 2000 );
+		    lut.setMin( 0 );
+		    legend = lut.setLegendOn();
+		    legend.name = "legend";
+		    scene.add(legend);
+                }
+            }
  
             // update the picking ray with the camera and mouse position	
 	        raycaster.setFromCamera( mouse, camera );	
@@ -3411,12 +3558,10 @@ scene.add(pv101a);
                 //console.log("Check intersection");
                 //console.log(intersects);
 	        for ( var i = 0; i < intersects.length; i++ ) {
-		        //intersects[ i ].object.material.color.set( 0xff0000 );
-                //$("#obj-tooltip").text(intersects[ i ].object.name); 
-                if (intersects[ i ].object.name != "") {
-                    $("#obj-tooltip").text("Module: " + intersects[ i ].object.name);
-                    $("#val-tooltip").text("Value: " + data[ intersects[ i ].object.name ]);
-                }
+                    if (intersects[ i ].object.name != "" && intersects[ i ].object.name != "legend") {
+                        $("#obj-tooltip").text("Module: " + intersects[ i ].object.name);
+                        $("#val-tooltip").text("Value: " + data[ intersects[ i ].object.name ]);
+                    }
             }
             
             renderer.render(scene, camera);
@@ -3469,8 +3614,165 @@ scene.add(pv101a);
 <script>
 jQuery(window).load(function () {
 
+    var typeFlag, typeValue;
+    
+    $('input[type=radio][name=moduleType]').change(function() {
+        typeValue = this.value;
+        for (var prop in data) {
+            value = data[prop];
+
+            if (prop != "time") {
+                current_type = prop.split("_")[0][1];
+
+                if (current_type != typeValue) {
+                    colour = "0xaaaaaa";
+                } else {
+                    colour = mycm["jet"][parseInt(Math.floor( (value / 10.0) * 71.0 ))];     
+                    colour = "0x" + colour.substring(1);
+                }
+                object = scene.getObjectByName( prop, true );
+                if (object) {
+                    object.material.color.setHex( colour );
+                }
+            }
+        }
+    });
+  
+    
+    $("#myType").change(function() {
+	    if(this.checked) {
+	        typeFlag = true;
+                var radios = $('input:radio[name=moduleType]');
+                if(radios.is(':checked') === false) {
+                    radios.filter('[value=A]').prop('checked', true);
+                }
+                typeValue = "A";
+
+                for (var prop in data) {
+                    value = data[prop];
+
+                    if (prop != "time") {
+                        current_type = prop.split("_")[0][1];
+
+                        if (current_type != typeValue) {
+                            colour = "0xaaaaaa";
+                        } else {
+                            colour = mycm["jet"][parseInt(Math.floor( (value / 10.0) * 71.0 ))];     
+                            colour = "0x" + colour.substring(1);
+                        }
+                        object = scene.getObjectByName( prop, true );
+                        if (object) {
+                            object.material.color.setHex( colour );
+                        }
+                    }
+                }
+                //updateColour("A");
+            } else {
+	        typeFlag = false;
+                var radios = $('input:radio[name=moduleType]');
+                if(radios.is(':checked') === true) {
+                    radios.filter('[value=A]').prop('checked', false);
+                    radios.filter('[value=B]').prop('checked', false);
+                    radios.filter('[value=C]').prop('checked', false);
+                    radios.filter('[value=D]').prop('checked', false);
+                }
+                for (var prop in data) {
+                    value = data[prop];
+
+                    if (prop != "time") {
+                        colour = mycm["jet"][parseInt(Math.floor( (value / 10.0) * 71.0 ))];     
+                        colour = "0x" + colour.substring(1);
+                        object = scene.getObjectByName( prop, true );
+                        if (object) {
+                            object.material.color.setHex( colour );
+                        }
+                    }
+                }
+	    }
+        });
+
+
 myTimer();
 var myVar = setInterval(myTimer, 10000);
+
+var mycm = {
+    jet: ['#000080',
+ '#00008d',
+ '#00009f',
+ '#0000ad',
+ '#0000bf',
+ '#0000d1',
+ '#0000df',
+ '#0000f1',
+ '#0000ff',
+ '#0000ff',
+ '#0010ff',
+ '#001cff',
+ '#002cff',
+ '#0038ff',
+ '#0048ff',
+ '#0058ff',
+ '#0064ff',
+ '#0074ff',
+ '#0080ff',
+ '#0090ff',
+ '#00a0ff',
+ '#00acff',
+ '#00bcff',
+ '#00c8ff',
+ '#00d8ff',
+ '#02e8f4',
+ '#0cf4eb',
+ '#19ffde',
+ '#23ffd4',
+ '#30ffc7',
+ '#3cffba',
+ '#46ffb1',
+ '#53ffa4',
+ '#5dff9a',
+ '#6aff8d',
+ '#77ff80',
+ '#80ff77',
+ '#8dff6a',
+ '#9aff5d',
+ '#a4ff53',
+ '#b1ff46',
+ '#baff3c',
+ '#c7ff30',
+ '#d4ff23',
+ '#deff19',
+ '#ebff0c',
+ '#f4f802',
+ '#ffea00',
+ '#ffdb00',
+ '#ffd000',
+ '#ffc100',
+ '#ffb600',
+ '#ffa700',
+ '#ff9800',
+ '#ff8d00',
+ '#ff7e00',
+ '#ff7300',
+ '#ff6400',
+ '#ff5500',
+ '#ff4a00',
+ '#ff3b00',
+ '#ff3000',
+ '#ff2200',
+ '#ff1300',
+ '#f10800',
+ '#df0000',
+ '#d10000',
+ '#bf0000',
+ '#ad0000',
+ '#9f0000',
+ '#8d0000',
+ '#800000']
+}
+
+var min_pac = 0;
+var max_pac = 10.0;
+
 
 function myTimer() {
     var dataToSend = {};
@@ -3492,14 +3794,39 @@ function myTimer() {
                 if (prop == "time") {
                     $("#slider-tooltip").text(value);
                 } else {
-                    // 0 = red
-                    // 1 = green
-                    if (value <= 0) {
-                        colour = "0xff0000";
-                    } else {
-                        colour = "0x242b72";
+                    var mode = $('input[type=radio][name=moduleMode]:checked').val();
+                    current_type = prop.split("_")[0][1];
+
+                    if (mode == "0") {
+                        legend_object = scene.getObjectByName( "legend", true );
+                        if (legend_object) {
+                            scene.remove(legend_object);
+                        }
+                        //animate();
+                        if (value <= 0) {
+                            colour = "0xff0000";
+                        } else {
+                            colour = "0x242b72";
+                        }
+                    } else if (mode == "1") {
+                        legend_object = scene.getObjectByName( "legend", true );
+                        if (!legend_object) {
+	                    lut = new THREE.Lut( 'rainbow', 512 );
+                            lut.setMax( 2000 );
+                            lut.setMin( 0 );
+                            legend = lut.setLegendOn();
+                            legend.name = "legend";
+                            scene.add(legend);
+                        }
+                        
+                        colour = mycm["jet"][parseInt(Math.floor( (value / 10.0) * 71.0 ))];     
+                        colour = "0x" + colour.substring(1);
+
+                        if (typeFlag == true && current_type != typeValue) {
+                            colour = "0xaaaaaa";
+                        }
+ 
                     }
-                
                     object = scene.getObjectByName( prop, true );
                     if (object) {
                         object.material.color.setHex( colour );
