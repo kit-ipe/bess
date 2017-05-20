@@ -1,6 +1,6 @@
 background: cps_02.png
 password: PCE_D4t3nb4nk!
-polling: '30'
+polling: '120'
 port: '9567'
 pw_designer: ipe-test
 script: services/getdata.php

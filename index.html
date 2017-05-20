@@ -17,7 +17,7 @@
     <!--<div id="slider"></div>-->
     <div id="slider-tooltip"></div>
     <div id="obj-tooltip">Module: </div>
-    <div id="val-tooltip">Value: </div>
+    <div id="val-tooltip">Power: </div>
     <!--<div id="stat-tooltip">Status: </div>-->
     <div class="window-item window-unitem" id="message">
         <div class="bar-header">
@@ -3390,22 +3390,22 @@ scene.add(pv101a);
             createLabel("legend_high");
 
             $("#textlegend_title").css("fontSize", "16px");
-            $("#textlegend_title").text("Pca [W]");
+            $("#textlegend_title").text("Power (kW/kWp)");
 
             $("#textlegend_mid").css("fontSize", "16px");
             $("#textlegend_mid").css("color", "black");
             $("#textlegend_mid").css("background-color", "transparent");
-            $("#textlegend_mid").text("5.0");
+            $("#textlegend_mid").text("0.5");
 
             $("#textlegend_low").css("fontSize", "16px");
             $("#textlegend_low").css("color", "black");
             $("#textlegend_low").css("background-color", "transparent");
-            $("#textlegend_low").text("< 0.0");
+            $("#textlegend_low").text("0.0");
 	    
             $("#textlegend_high").css("fontSize", "16px");
             $("#textlegend_high").css("color", "black");
             $("#textlegend_high").css("background-color", "transparent");
-            $("#textlegend_high").text("> 10.0");
+            $("#textlegend_high").text("1.0");
 
             scene.add ( legend );
 
@@ -3559,8 +3559,8 @@ scene.add(pv101a);
                 //console.log(intersects);
 	        for ( var i = 0; i < intersects.length; i++ ) {
                     if (intersects[ i ].object.name != "" && intersects[ i ].object.name != "legend") {
-                        $("#obj-tooltip").text("Module: " + intersects[ i ].object.name);
-                        $("#val-tooltip").text("Value: " + data[ intersects[ i ].object.name ]);
+                        $("#obj-tooltip").text("Array: " + intersects[ i ].object.name);
+                        $("#val-tooltip").text("Power: " + parseFloat(data[ intersects[ i ].object.name ]).toFixed(3) + " kW");
                     }
             }
             
@@ -3637,7 +3637,44 @@ jQuery(window).load(function () {
             }
         }
     });
+
+
+    $('input[type=radio][name=moduleMode]').change(function() {
+        modeValue = this.value;
+        for (var prop in data) {
+            value = data[prop];
+
+            if (prop != "time") {
+                if (modeValue == "0") {
+                    if (value <= 0) {
+                        colour = "0xff0000";
+                    } else {
+                        //colour = "0x242b72";
+                        colour = "0x00ff00";
+                    }
+                } else if (modeValue == "1") {
+                    
+                     console.log("inside mode 1");
+                    current_type = prop.split("_")[0][1];
+                    if (typeof current_type != "undefined") {                 
   
+                        colour = mycm["jet"][parseInt(Math.floor( (value / 10.0) * 71.0 ))];     
+                        //console.log(current_type, prop, colour);
+                        colour = "0x" + colour.substring(1);
+
+                        if (typeFlag == true && current_type != typeValue) {
+                            colour = "0xaaaaaa";
+                        }
+                    }
+                }
+                object = scene.getObjectByName( prop, true );
+                if (object) {
+                    object.material.color.setHex( colour );
+                }
+                //animate();
+            }
+        }
+    });
     
     $("#myType").change(function() {
 	    if(this.checked) {
@@ -3694,6 +3731,112 @@ jQuery(window).load(function () {
 
 myTimer();
 var myVar = setInterval(myTimer, 10000);
+
+var powerPeak = [
+10.00,
+8.64,
+9.69,
+10.00,
+9.69,
+10.00,
+9.69,
+10.00,
+10.00,
+10.00,
+9.00,
+9.69,
+10.00,
+10.00,
+9.50,
+9.69,
+10.00,
+10.00,
+10.00,
+10.00,
+10.00,
+10.00,
+8.64,
+9.69,
+10.00,
+9.69,
+10.00,
+10.00,
+9.69,
+10.00,
+10.00,
+10.00,
+10.00,
+9.00,
+10.00,
+10.00,
+8.64,
+10.00,
+10.00,
+9.00,
+9.69,
+10.00,
+10.00,
+10.00,
+9.00,
+9.69,
+10.00,
+10.00,
+10.00,
+10.00,
+10.00,
+10.00,
+10.00,
+9.00,
+10.00,
+9.00,
+9.69,
+10.00,
+10.00,
+10.00,
+9.00,
+10.00,
+10.00,
+8.64,
+10.00,
+10.00,
+9.00,
+9.69,
+10.00,
+10.00,
+10.00,
+10.00,
+10.00,
+10.00,
+10.00,
+8.64,
+9.69,
+10.00,
+10.00,
+10.00,
+10.00,
+8.64,
+9.69,
+10.00,
+10.00,
+10.00,
+10.00,
+9.00,
+9.69,
+10.00,
+10.00,
+9.50,
+9.69,
+10.00,
+9.69,
+10.00,
+9.69,
+10.00,
+9.69,
+10.00,
+10.00,
+10.00
+];
+
 
 var mycm = {
     jet: ['#000080',
@@ -3796,6 +3939,7 @@ function myTimer() {
                 } else {
                     var mode = $('input[type=radio][name=moduleMode]:checked').val();
                     current_type = prop.split("_")[0][1];
+                    current_array = parseInt(prop.split("_")[3]) - 1;
 
                     if (mode == "0") {
                         legend_object = scene.getObjectByName( "legend", true );
@@ -3806,7 +3950,8 @@ function myTimer() {
                         if (value <= 0) {
                             colour = "0xff0000";
                         } else {
-                            colour = "0x242b72";
+                            //colour = "0x242b72";
+                            colour = "0x00ff00";
                         }
                     } else if (mode == "1") {
                         legend_object = scene.getObjectByName( "legend", true );
@@ -3818,8 +3963,11 @@ function myTimer() {
                             legend.name = "legend";
                             scene.add(legend);
                         }
-                        
-                        colour = mycm["jet"][parseInt(Math.floor( (value / 10.0) * 71.0 ))];     
+
+                        pNorm = value / parseFloat(powerPeak[current_array]);
+
+
+                        colour = mycm["jet"][parseInt(Math.floor( (pNorm / 1.0) * 71.0 ))];     
                         colour = "0x" + colour.substring(1);
 
                         if (typeFlag == true && current_type != typeValue) {
