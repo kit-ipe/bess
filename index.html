@@ -13,6 +13,8 @@
 </head>
 
 <body>
+    <div id="kit-logo"><img src="http://katrin.kit.edu/static/kit_logo.svg" height=100></div>
+    <div id="competence-logo"><img src="http://katrin.kit.edu/static/CompetenceE-Logo.png" height=100></div>
     <div id="container"></div>
     <!--<div id="slider"></div>-->
     <div id="slider-tooltip"></div>
@@ -193,7 +195,7 @@
         var mycontrol;
         var enableControls = true;
         var enableRotate = false;
-        var data;
+        var data = [];
 	var labelFlag;
         var raycaster = new THREE.Raycaster();
         var mouse = new THREE.Vector2();
@@ -3653,8 +3655,6 @@ jQuery(window).load(function () {
                     //if (pNorm < 0.0) {
                     //    pNorm = 0.0;
                     //}
-
-                    colour = mycm["jet"][parseInt(Math.floor( (pNorm / 1.0) * 71.0 ))];     
                     colour = "0x" + colour.substring(1);
                 }
                 object = scene.getObjectByName( prop, true );
@@ -3667,18 +3667,23 @@ jQuery(window).load(function () {
 
 
     $('input[type=radio][name=moduleMode]').change(function() {
+        //var myVar = setInterval(myTimer, 10000);
+        //clearInterval(myVar);
         modeValue = this.value;
+        //console.log(modeValue);
         for (var prop in data) {
             value = data[prop];
 
             if (prop != "time") {
                 if (modeValue == "0") {
+                    //console.log("setting mode 0")
                     if (value <= 0) {
                         colour = "0xff0000";
                     } else {
                         //colour = "0x242b72";
                         colour = "0x00ff00";
                     }
+                    //console.log("setting mode 0", colour);
                 } else if (modeValue == "1") {
                     
                     //console.log("inside mode 1");
@@ -3709,7 +3714,9 @@ jQuery(window).load(function () {
                     }
                 }
                 object = scene.getObjectByName( prop, true );
+                //object.material.color.setHex( colour );
                 if (object) {
+                    //console.log("SETTING COLOUR");
                     object.material.color.setHex( colour );
                 }
                 //animate();
@@ -3771,20 +3778,25 @@ jQuery(window).load(function () {
                 }
                 for (var prop in data) {
                     value = data[prop];
-                    current_array = parseInt(prop.split("_")[3]) - 1;
 
                     if (prop != "time") {
-     
-                        pNorm = value / ( 0.5 * parseFloat(powerPeak[current_array]));
+                        current_type = prop.split("_")[0][1];
+                        current_array = parseInt(prop.split("_")[3]) - 1;
+
+                        if (current_type == "D") {
+                            pNorm = value / ( parseFloat(powerPeak[current_array]));
+                        } else {
+                            pNorm = value / ( 0.5 * parseFloat(powerPeak[current_array]));
+                        }
                         //pNorm = value / parseFloat(powerPeak[current_array]);
-                        if (pNorm > 0.5) {
-                            pNorm = 0.5;
+                        if (pNorm > 1.0) {
+                            pNorm = 1.0;
                         }
                         if (pNorm < 0.0) {
                             pNorm = 0.0;
                         }
 
-                        colour = mycm["jet"][parseInt(Math.floor( (pNorm / 1.0) * 71.0 ))];
+                        colour = mycm["jet"][parseInt(Math.floor( (pNorm / 1.0) * 71.0 ))];     
                         colour = "0x" + colour.substring(1);
                         object = scene.getObjectByName( prop, true );
                         if (object) {
@@ -3797,7 +3809,8 @@ jQuery(window).load(function () {
 
 
 myTimer();
-var myVar = setInterval(myTimer, 10000);
+var myVar = setInterval(myTimer, 1000);
+//clearInterval(refreshIntervalId);
 
 var powerPeak = [
 10.00,
