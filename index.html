@@ -3614,8 +3614,10 @@ scene.add(pv101a);
 <script>
 jQuery(window).load(function () {
 
-    var typeFlag, typeValue;
-    
+    var typeFlag = false;
+    var typeValue = "A";
+   
+ 
     $('input[type=radio][name=moduleType]').change(function() {
         typeValue = this.value;
         for (var prop in data) {
@@ -3623,11 +3625,36 @@ jQuery(window).load(function () {
 
             if (prop != "time") {
                 current_type = prop.split("_")[0][1];
+                current_array = parseInt(prop.split("_")[3]) - 1;
 
                 if (current_type != typeValue) {
                     colour = "0xaaaaaa";
                 } else {
-                    colour = mycm["jet"][parseInt(Math.floor( (value / 10.0) * 71.0 ))];     
+                    // Type D need to half them
+                    if (current_type == "D") {
+                        pNorm = value / ( parseFloat(powerPeak[current_array]));
+                    } else {
+                        pNorm = value / ( 0.5 * parseFloat(powerPeak[current_array]));
+                    }
+                    //pNorm = value / parseFloat(powerPeak[current_array]);
+                    if (pNorm > 1.0) {
+                        pNorm = 1.0;
+                    }
+                    if (pNorm < 0.0) {
+                        pNorm = 0.0;
+                    }
+
+                    colour = mycm["jet"][parseInt(Math.floor( (pNorm / 1.0) * 71.0 ))];     
+
+                    //pNorm = value / ( 0.5 * parseFloat(powerPeak[current_array]));
+                    //if (pNorm > 0.5) {
+                    //    pNorm = 0.5;
+                    //}
+                    //if (pNorm < 0.0) {
+                    //    pNorm = 0.0;
+                    //}
+
+                    colour = mycm["jet"][parseInt(Math.floor( (pNorm / 1.0) * 71.0 ))];     
                     colour = "0x" + colour.substring(1);
                 }
                 object = scene.getObjectByName( prop, true );
@@ -3654,12 +3681,26 @@ jQuery(window).load(function () {
                     }
                 } else if (modeValue == "1") {
                     
-                     console.log("inside mode 1");
+                    //console.log("inside mode 1");
                     current_type = prop.split("_")[0][1];
-                    if (typeof current_type != "undefined") {                 
-  
-                        colour = mycm["jet"][parseInt(Math.floor( (value / 10.0) * 71.0 ))];     
-                        //console.log(current_type, prop, colour);
+                    current_array = parseInt(prop.split("_")[3]) - 1;
+                    if (typeof current_type != "undefined") {
+ 
+                        // Type D need to half them
+                        if (current_type == "D") {
+                            pNorm = value / ( parseFloat(powerPeak[current_array]));
+                        } else {
+                            pNorm = value / ( 0.5 * parseFloat(powerPeak[current_array]));
+                        }
+                        //pNorm = value / parseFloat(powerPeak[current_array]);
+                        if (pNorm > 1.0) {
+                            pNorm = 1.0;
+                        }
+                        if (pNorm < 0.0) {
+                            pNorm = 0.0;
+                        }
+
+                        colour = mycm["jet"][parseInt(Math.floor( (pNorm / 1.0) * 71.0 ))];     
                         colour = "0x" + colour.substring(1);
 
                         if (typeFlag == true && current_type != typeValue) {
@@ -3690,11 +3731,26 @@ jQuery(window).load(function () {
 
                     if (prop != "time") {
                         current_type = prop.split("_")[0][1];
+                        current_array = parseInt(prop.split("_")[3]) - 1;
 
                         if (current_type != typeValue) {
                             colour = "0xaaaaaa";
                         } else {
-                            colour = mycm["jet"][parseInt(Math.floor( (value / 10.0) * 71.0 ))];     
+                            // Type D need to half them
+                            if (current_type == "D") {
+                                pNorm = value / ( parseFloat(powerPeak[current_array]));
+                            } else {
+                                pNorm = value / ( 0.5 * parseFloat(powerPeak[current_array]));
+                            }
+                            //pNorm = value / parseFloat(powerPeak[current_array]);
+                            if (pNorm > 1.0) {
+                                pNorm = 1.0;
+                            }
+                            if (pNorm < 0.0) {
+                                pNorm = 0.0;
+                            }
+
+                            colour = mycm["jet"][parseInt(Math.floor( (pNorm / 1.0) * 71.0 ))];     
                             colour = "0x" + colour.substring(1);
                         }
                         object = scene.getObjectByName( prop, true );
@@ -3715,9 +3771,20 @@ jQuery(window).load(function () {
                 }
                 for (var prop in data) {
                     value = data[prop];
+                    current_array = parseInt(prop.split("_")[3]) - 1;
 
                     if (prop != "time") {
-                        colour = mycm["jet"][parseInt(Math.floor( (value / 10.0) * 71.0 ))];     
+     
+                        pNorm = value / ( 0.5 * parseFloat(powerPeak[current_array]));
+                        //pNorm = value / parseFloat(powerPeak[current_array]);
+                        if (pNorm > 0.5) {
+                            pNorm = 0.5;
+                        }
+                        if (pNorm < 0.0) {
+                            pNorm = 0.0;
+                        }
+
+                        colour = mycm["jet"][parseInt(Math.floor( (pNorm / 1.0) * 71.0 ))];
                         colour = "0x" + colour.substring(1);
                         object = scene.getObjectByName( prop, true );
                         if (object) {
@@ -3964,8 +4031,19 @@ function myTimer() {
                             scene.add(legend);
                         }
 
-                        pNorm = value / parseFloat(powerPeak[current_array]);
-
+                        // Type D need to half them
+                        if (current_type == "D") {
+                            pNorm = value / ( parseFloat(powerPeak[current_array]));
+                        } else {
+                            pNorm = value / ( 0.5 * parseFloat(powerPeak[current_array]));
+                        }
+                        //pNorm = value / parseFloat(powerPeak[current_array]);
+                        if (pNorm > 1.0) {
+                            pNorm = 1.0;
+                        }
+                        if (pNorm < 0.0) {
+                            pNorm = 0.0;
+                        }
 
                         colour = mycm["jet"][parseInt(Math.floor( (pNorm / 1.0) * 71.0 ))];     
                         colour = "0x" + colour.substring(1);
