@@ -84,9 +84,9 @@ table {
     position: absolute;
     top: 40px;
     left: 40%;
-
     font-family: 'Source Code Pro';
     color: #808080;
+    font-size: 100%;
 }
 
 #obj-tooltip {
@@ -96,15 +96,17 @@ table {
     width: 20%;
     font-family: 'Source Code Pro';
     color: #808080;
+    font-size: 100%;
 }
 
 #val-tooltip {
     position: absolute;
-    top: 80px;
+    top: 150px;
     right: 0px;
     width: 20%;
     font-family: 'Source Code Pro';
     color: #808080;
+    font-size: 100%;
 }
 
 #stat-tooltip {
@@ -310,12 +312,22 @@ table {
     position: absolute;
     left: 10px;
     top: 10px;
+    height: 10%;
+}
+
+#kit-logo img {
+    height: 100%;
+    width: 100%;
 }
 
 #competence-logo {
     position: absolute;
-    right: 300px;
+    right: 240px;
     bottom: 10px;
+}
+#competence-logo > img,
+#ipe-logo > img {
+    height: 50px;
 }
 
 #ipe-logo {
