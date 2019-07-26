@@ -11,6 +11,7 @@ import datetime
 from shutil import copyfile
 from time import gmtime, strftime
 import time
+import calendar
 
 import tornado.escape
 import tornado.ioloop
@@ -64,6 +65,20 @@ class RepeatedTimer(object):
         self.interval = interval
     
 
+months = {
+    'Jan' : 1,
+    'Feb' : 2,
+    'Mar' : 3,
+    'Apr' : 4,
+    'May' : 5,
+    'Jun' : 6,
+    'Jul' : 7,
+    'Aug' : 8,
+    'Sep' : 9, 
+    'Oct' : 10,
+    'Nov' : 11,
+    'Dec' : 12
+}
 
 
 def fetchDataADEI():
@@ -84,37 +99,60 @@ def fetchDataADEI():
     #time_range = str((curtime-1800)) + "-" + str(curtime)
     time_range = "-1" 
     for param in varname:
-        print param
+        #print param
         dest = config['server'] + config['script']
         #url = dest + "?" + varname[param] + "&window=-1"
         url = dest + "?" + varname[param] + "&window=" + time_range
-        print url
+        #print url
+        #print config['username'], config['password']
         data = requests.get(url,
                             auth=(config['username'],
                                   config['password'])).content
         #tmp_data = data.content
-        #print "CHECK THIS"
+        
         #print data
 
-        last_value = data.split(",")[-1].strip()
+        # Date/Time, p_string2
+        # 11-Aug-17 14:49:32.446682, 0.495
+        lines = data.splitlines()
+        if len(lines) < 2:
+	    print "No data:"
+	    print "URL:  " + url
+	    print "\n"
+	    continue
+
+        tmp_data = lines[-1]
+        last_value = tmp_data.split(",")[-1].strip()
+        first_value = tmp_data.split(",")[-2].strip()
         try:
-            print last_value
+            #print last_value
             test_x = float(last_value)
         except ValueError:
             last_value = ""
- 	    print last_value
-        cache_data[param] = last_value
-        #current_timestamp = strftime("%Y-%m-%d %H:%M:%S", gmtime())
-        current_timestamp = strftime("%Y-%m-%d %H:%M:%S")
-        cache_data['time'] = current_timestamp
+ 	    #print last_value
+
+	try:
+	    time_buffer = first_value.split("-")
+	    time_buffer[1] = str(months[time_buffer[1]])
+	    first_value = "-".join(time_buffer)
+	    first_ts = calendar.timegm(datetime.datetime.strptime(first_value, "%d-%m-%y %H:%M:%S.%f").timetuple())
+
+	    cache_data[param] = {'timestamp': first_ts, 'value': last_value}
+        
+	    #current_timestamp = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+	    current_timestamp = strftime("%Y-%m-%d %H:%M:%S")
+	    cache_data['time'] = {"value": current_timestamp}
+	except:
+	    print "Problem parsing data:"
+	    print "URL:  " + url
+	    print "Data: " + first_value
+	    print "\n"
 
     with open(".tmp.yaml", 'w') as stream_tmp:
         stream_tmp.write(yaml.dump(cache_data, default_flow_style=False))
     src_file = os.getcwd() + "/.tmp.yaml"
     dst_file = os.getcwd() + "/cache.yaml"
     shutil.copy(src_file, dst_file)
-    
-    
 
     
 print "Start torrenting..."
@@ -294,7 +332,7 @@ class AdeiKatrinHandler(tornado.web.RequestHandler):
         data = requests.get(url, auth=(config['username'], config['password']))
         cr = data.content
         cr = cr.split(",")
-        print cr, len(cr)
+        #print cr, len(cr)
        
 
         # handling the inconsistency on naming convention
@@ -364,16 +402,17 @@ class AdeiKatrinHandler(tornado.web.RequestHandler):
 
 class GetDataHandler(tornado.web.RequestHandler):
     def get(self):
+        cache_data = None
         with open("cache.yaml", 'r') as stream:
             try:
                 #print(yaml.load(stream))
                 cache_data = yaml.load(stream)
             except yaml.YAMLError as exc:
                 print(exc)
-        print("GetData:")
+        #print("GetData:")
         if cache_data == None:
             cache_data = {}
-        print cache_data
+        #print cache_data
         self.write(cache_data) 
 
     

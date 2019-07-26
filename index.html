@@ -21,6 +21,8 @@
     <div id="slider-tooltip"></div>
     <div id="obj-tooltip">Module: </div>
     <div id="val-tooltip">Power: </div>
+    <div id="ts-tooltip">Last fetched (ADEI): </div>
+    <div id="delta-tooltip">Delta Time: </div>
     <!--<div id="stat-tooltip">Status: </div>-->
     <div class="window-item window-unitem" id="message">
         <div class="bar-header">
@@ -3571,8 +3573,13 @@ scene.add(pv101a);
                 //console.log(intersects);
 	        for ( var i = 0; i < intersects.length; i++ ) {
                     if (intersects[ i ].object.name != "" && intersects[ i ].object.name != "legend") {
+                        delta = (new Date().getTime()/1000.0) - data[ intersects[ i ].object.name ]["timestamp"];
+                        var dateTime = new Date( data[ intersects[ i ].object.name ]["timestamp"]*1000.0 );
                         $("#obj-tooltip").text("Array: " + intersects[ i ].object.name);
-                        $("#val-tooltip").text("Power: " + parseFloat(data[ intersects[ i ].object.name ]).toFixed(3) + " kW");
+                        $("#val-tooltip").text("Power: " + parseFloat(data[ intersects[ i ].object.name ]["value"]).toFixed(3) + " kW");
+                        //$("#ts-tooltip").text("Last fetched (ADEI): " + dateTime.toUTCString());
+                        $("#ts-tooltip").text("Last fetched (ADEI): " + dateTime.toString());
+                        $("#delta-tooltip").text("Delta Time: " + parseFloat(delta).toFixed(3) + " s (" + parseFloat(delta / 60.0).toFixed(3) + " min)");
                     }
             }
             
@@ -3819,6 +3826,7 @@ jQuery(window).load(function () {
 
 
 myTimer();
+// set higher delay, but need to trigger change
 var myVar = setInterval(myTimer, 1000);
 //clearInterval(refreshIntervalId);
 
@@ -4023,10 +4031,11 @@ function myTimer() {
             data = response;
             var obj = response;
             for (var prop in obj) {
-                value = obj[prop];
                 if (prop == "time") {
-                    $("#slider-tooltip").text(value);
+                    $("#slider-tooltip").text(obj[prop]["value"]);
                 } else {
+                    value = obj[prop]["value"];
+                    delta = (new Date().getTime() / 1000.0) - obj[prop]["timestamp"]
                     var mode = $('input[type=radio][name=moduleMode]:checked').val();
                     current_type = prop.split("_")[0][1];
                     current_array = parseInt(prop.split("_")[3]) - 1;
@@ -4037,11 +4046,16 @@ function myTimer() {
                             scene.remove(legend_object);
                         }
                         //animate();
-                        if (value <= 0) {
-                            colour = "0xff0000";
+                        if (delta > 600) {
+                            //colour = "0xff8c00";
+                            colour = "0xffd700";
                         } else {
-                            //colour = "0x242b72";
-                            colour = "0x00ff00";
+                            if (value <= 0) {
+                                colour = "0xff0000";
+                            } else {
+                                //colour = "0x242b72";
+                                colour = "0x00ff00";
+                            }
                         }
                     } else if (mode == "1") {
                         legend_object = scene.getObjectByName( "legend", true );
